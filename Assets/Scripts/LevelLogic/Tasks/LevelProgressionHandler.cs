@@ -30,8 +30,6 @@ public class LevelProgressionHandler : MonoBehaviour
 
     private void Update()
     {
-        print(_finishedTasks);
-
         if (_finishedTasks == _tasksToFinish)
             _levelFinishScreen.gameObject.SetActive(true);
     }
