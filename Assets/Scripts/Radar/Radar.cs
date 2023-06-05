@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Radar : MonoBehaviour
@@ -7,7 +8,7 @@ public class Radar : MonoBehaviour
     [SerializeField] private RadarUI _radarUI;
     [SerializeField] private float _radarMaxDistance;
 
-    private List <Transform> _targets = new List<Transform>();
+    private List <Goldmine> _targets = new List<Goldmine>();
 
     void Update()
     {
@@ -15,40 +16,43 @@ public class Radar : MonoBehaviour
         {
             foreach (var target in _targets)
             {
-                var distance = Vector3.Distance(_radar.position, target.position);
-                var direction = target.position - _radar.position;
-                float angle = Vector3.SignedAngle(direction, _radar.forward, Vector3.up);
+                if (target.IsActivated == false)
+                {
+                    var distance = Vector3.Distance(_radar.position, target.transform.position);
+                    var direction = target.transform.position - _radar.position;
+                    float angle = Vector3.SignedAngle(direction, _radar.forward, Vector3.up);
 
-                if (angle > -45f && angle <= 45f)
-                    _radarUI.DisplayTargetDirection(RadarUI.Up, distance, target);
+                    if (angle > -45f && angle <= 45f)
+                        _radarUI.DisplayTargetDirection(RadarUI.Up, distance, target.transform);
 
-                else if (angle > -135f && angle <= -45f)
-                    _radarUI.DisplayTargetDirection(RadarUI.Right, distance, target);
+                    else if (angle > -135f && angle <= -45f)
+                        _radarUI.DisplayTargetDirection(RadarUI.Right, distance, target.transform);
 
-                else if (angle > 45f && angle <= 135f)
-                    _radarUI.DisplayTargetDirection(RadarUI.Left, distance, target);
+                    else if (angle > 45f && angle <= 135f)
+                        _radarUI.DisplayTargetDirection(RadarUI.Left, distance, target.transform);
 
-                else
-                    _radarUI.DisplayTargetDirection(RadarUI.Down, distance, target);
+                    else
+                        _radarUI.DisplayTargetDirection(RadarUI.Down, distance, target.transform);
+                }
             }
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Goldmine goldmine) && _targets.Contains(goldmine.transform) == false)
+        if (other.TryGetComponent(out Goldmine goldmine) && _targets.Contains(goldmine) == false)
         {
             if (goldmine.IsActivated == false)
-                _targets.Add(goldmine.transform);
+                _targets.Add(goldmine);
         }
-
-        if (other.TryGetComponent(out Treasure treasure) && _targets.Contains(treasure.transform) == false)
-            _targets.Add(treasure.transform);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(_targets.Contains(other.transform) == true)
-            _targets.Remove(other.transform);
+        if(other.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
+        {
+            if (_targets.Contains(goldmine) == true)
+                _targets.Remove(goldmine);
+        }
     }
 }

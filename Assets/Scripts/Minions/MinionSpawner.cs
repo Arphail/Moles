@@ -5,7 +5,7 @@ public class MinionSpawner : MonoBehaviour
 {
     [SerializeField] private Goldmine[] _goldmines;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Transform _base;
+    [SerializeField] private Transform _returnPoint;
 
     private List<Goldmine> _activatedGoldmines;
 
@@ -36,7 +36,7 @@ public class MinionSpawner : MonoBehaviour
         {
             Minion spawnedMinion = Instantiate(minionTemplate, _spawnPoint.position, Quaternion.identity);
             int randomGoldmineIndex = Random.Range(0, _activatedGoldmines.Count);
-            spawnedMinion.SetBase(_base.transform.position);
+            spawnedMinion.SetBase(_returnPoint.transform.position);
             spawnedMinion.SetGoldmine(_activatedGoldmines[randomGoldmineIndex].transform.position);
             SpawnedMinions++;
         }

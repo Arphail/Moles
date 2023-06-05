@@ -10,36 +10,27 @@ public class RadarQuarter : MonoBehaviour
     [SerializeField] private RawImage _midDistanceImage;
     [SerializeField] private RawImage _shortDistanceImage;
     [SerializeField] private Color _basicColor;
-    [SerializeField] private Color _goldmineVisualColor;
-    [SerializeField] private Color _treasureVisualColor;
+    [SerializeField] private Color _activeColor;
 
-    private Color _currentColor;
-
-    public void ShowDistance(float distance, Transform target)
+    public void ShowDistance(float distance)
     {
-        if(target.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
-            _currentColor = _goldmineVisualColor;
-
-        if(target.gameObject.TryGetComponent<Treasure>(out Treasure treasure))
-            _currentColor = _treasureVisualColor;
-
         if (distance <= _shortDistance)
         {
-            _longDistanceImage.color = _currentColor;
-            _midDistanceImage.color = _currentColor;
-            _shortDistanceImage.color = _currentColor;
+            _longDistanceImage.color = _activeColor;
+            _midDistanceImage.color = _activeColor;
+            _shortDistanceImage.color = _activeColor;
         }
 
         if (distance > _shortDistance && distance < _midDistance)
         {
-            _longDistanceImage.color = _currentColor;
-            _midDistanceImage.color = _currentColor;
+            _longDistanceImage.color = _activeColor;
+            _midDistanceImage.color = _activeColor;
             _shortDistanceImage.color = _basicColor;
         }
 
         if (distance > _midDistance && distance < _longDistance)
         {
-            _longDistanceImage.color = _currentColor;
+            _longDistanceImage.color = _activeColor;
             _midDistanceImage.color = _basicColor;
             _shortDistanceImage.color = _basicColor;
         }

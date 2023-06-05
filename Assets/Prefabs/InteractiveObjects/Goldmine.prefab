@@ -18,8 +18,8 @@ GameObject:
   m_Name: Goldmine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1853240223145038214
 Transform:
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3450691843339084693}
   m_LocalRotation: {x: 0.2837679, y: 0.6476695, z: 0.6476695, w: -0.2837679}
-  m_LocalPosition: {x: -71.83, y: 0, z: -79.49}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []

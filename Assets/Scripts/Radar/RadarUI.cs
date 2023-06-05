@@ -19,19 +19,19 @@ public class RadarUI : MonoBehaviour
             switch (direction)
             {
                 case Up:
-                    _quarterUp.ShowDistance(distance, target);
+                    _quarterUp.ShowDistance(distance);
                     break;
 
                 case Right:
-                    _quarterRight.ShowDistance(distance, target);
+                    _quarterRight.ShowDistance(distance);
                     break;
 
                 case Left:
-                    _quarterLeft.ShowDistance(distance, target);
+                    _quarterLeft.ShowDistance(distance);
                     break;
 
                 case Down:
-                    _quarterDown.ShowDistance(distance, target);
+                    _quarterDown.ShowDistance(distance);
                     break;
             }
         }
