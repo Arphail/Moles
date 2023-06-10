@@ -15,11 +15,10 @@ public class Base : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Minion minion))
+        if (other.TryGetComponent(out GoldFarmer farmer))
         {
-            _gold += minion.CurrentGold;
-            minion.EmptyBag();
-            minion.WalkToDestination(minion.GoldminePosition);
+            _gold += farmer.CurrentGold;
+            farmer.EmptyBag();
         }
     }
 
