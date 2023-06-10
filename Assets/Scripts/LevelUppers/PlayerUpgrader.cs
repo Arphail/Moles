@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -17,7 +15,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
 
     private GoldFarmer _farmer;
     private PlayerController _controller;
-    private float _ugradeRatio = 1.75f;
+    private float _ugradeRatio = 15;
     private float _currentSpeedLevel = 1;
     private float _currentCapacityLevel = 1;
     private float _currentDelayLevel = 1;
@@ -40,7 +38,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
             _controller.MoveSpeedUpgrade();
             _base.SpendGold(_speedUpgradeCost);
             _currentSpeedLevel++;
-            _speedUpgradeCost += _currentSpeedLevel * _ugradeRatio;
+            _speedUpgradeCost +=  _ugradeRatio;
         }
     }
 
@@ -51,7 +49,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
             _farmer.UpgradeGoldCapacity();
             _base.SpendGold(_capacityUpgradeCost);
             _currentCapacityLevel++;
-            _capacityUpgradeCost += _currentCapacityLevel * _ugradeRatio;
+            _capacityUpgradeCost += _ugradeRatio;
         }
     }
 
@@ -62,7 +60,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
             _farmer.UpgradeFarmDelay();
             _base.SpendGold(_delayUpgradeCost);
             _currentDelayLevel++;
-            _delayUpgradeCost += _currentDelayLevel * _ugradeRatio;
+            _delayUpgradeCost += _ugradeRatio;
         }
     }
 }

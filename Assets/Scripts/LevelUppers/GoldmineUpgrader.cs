@@ -20,7 +20,7 @@ public class GoldmineUpgrader : MonoBehaviour
 
     public void UpgradeGoldmineMinionLimit()
     {
-        CurrentLevel ++;
+        CurrentLevel++;
         CurrentLevelCost += _costRatio;
     }
 }

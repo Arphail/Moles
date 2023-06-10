@@ -10,10 +10,6 @@ public class MinionSpawner : MonoBehaviour
 
     private List<Goldmine> _activatedGoldmines;
 
-    public bool CanSpawn { get; private set; }
-
-    public int SpawnedMinions { get; private set; }
-
     private void Start()
     {
         _activatedGoldmines = new List<Goldmine>();
@@ -37,14 +33,6 @@ public class MinionSpawner : MonoBehaviour
             goldmine.Upgraded -= OnGoldMineUpgraded;
     }
 
-    private void Update()
-    {
-        if (_activatedGoldmines.Count > 0)
-            CanSpawn = true;
-        else
-            CanSpawn = false;
-    }
-
     public void SpawnMinion(Goldmine goldmine)
     {
         foreach (Minion minion in _minionPool)
@@ -62,6 +50,7 @@ public class MinionSpawner : MonoBehaviour
     private void OnGoldMineActivated(Goldmine goldmine)
     {
         _activatedGoldmines.Add(goldmine);
+        SpawnMinion(goldmine);
     }
 
     private void OnGoldMineUpgraded(Goldmine goldmine)

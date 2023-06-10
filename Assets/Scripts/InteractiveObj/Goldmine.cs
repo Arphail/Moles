@@ -4,8 +4,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(GoldmineUpgrader))]
 public class Goldmine : MonoBehaviour
 {
+    [SerializeField] private Base _base;
     [SerializeField] private GoldmineUpgradeUi _ui;
-    
+    [SerializeField] private MeshRenderer _meshRenderer;
+
     public event UnityAction<Goldmine> Activated;
 
     public event UnityAction<Goldmine> Upgraded;
@@ -16,6 +18,7 @@ public class Goldmine : MonoBehaviour
 
     private void Start()
     {
+        _meshRenderer.enabled = false;
         _upgrader = GetComponent<GoldmineUpgrader>();
     }
 
@@ -25,6 +28,7 @@ public class Goldmine : MonoBehaviour
         {
             if (IsActivated == false)
             {
+                _meshRenderer.enabled = true;
                 Activated?.Invoke(this);
                 IsActivated = true;
             }
@@ -57,8 +61,9 @@ public class Goldmine : MonoBehaviour
 
     public void UpgradeGoldmine()
     {
-        if(_upgrader.CurrentLevel < _upgrader.MaxLevel)
+        if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _base.Gold >= _upgrader.CurrentLevelCost)
         {
+            _base.SpendGold(_upgrader.CurrentLevelCost);
             _upgrader.UpgradeGoldmineMinionLimit();
             Upgraded?.Invoke(this);
         }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3876254663823504445}
   - component: {fileID: 3876254663823504446}
   - component: {fileID: 5847985144790061665}
+  - component: {fileID: 8749133059237785961}
   m_Layer: 0
   m_Name: Goldmine
   m_TagString: Untagged
@@ -98,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ui: {fileID: 0}
+  _meshRenderer: {fileID: 4026086118394058569}
 --- !u!135 &3876254663823504446
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -124,3 +127,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.36750907}
   m_Center: {x: 0, y: 0, z: 0.2}
+--- !u!114 &8749133059237785961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450691843339084693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49866ddaa085c9744ba6d42af208e386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxLevel: 0
+  _levelUpCost: 0
+  _costRatio: 0

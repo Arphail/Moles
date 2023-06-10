@@ -15,7 +15,7 @@ public class MinionUpgrader : MonoBehaviour, IUpgradable
     [SerializeField] private float _delayMaxLevel;
     [SerializeField] private float _delayUpgradeCost;
 
-    private float _ugradeRatio = 1.75f;
+    private float _ugradeRatio = 15;
     private float _currentSpeedLevel = 1;
     private float _currentCapacityLevel = 1;
     private float _currentDelayLevel = 1;
@@ -45,7 +45,7 @@ public class MinionUpgrader : MonoBehaviour, IUpgradable
                 minion.UpgradeMovementSpeed(_speedUpgradeValue);
 
             _base.SpendGold(_speedUpgradeCost);
-            _speedUpgradeCost += _currentSpeedLevel * _ugradeRatio;
+            _speedUpgradeCost += _ugradeRatio;
             _currentSpeedLevel++;
         }
     }
@@ -58,7 +58,7 @@ public class MinionUpgrader : MonoBehaviour, IUpgradable
                 minion.UpgradeCapacity();
 
             _base.SpendGold(_capacityUpgradeCost);
-            _capacityUpgradeCost += _currentCapacityLevel * _ugradeRatio;
+            _capacityUpgradeCost += _ugradeRatio;
             _currentCapacityLevel++;
         }
     }
@@ -71,7 +71,7 @@ public class MinionUpgrader : MonoBehaviour, IUpgradable
                 minion.UpgradeDelay();
 
             _base.SpendGold(_delayUpgradeCost);
-            _delayUpgradeCost += _currentDelayLevel * _ugradeRatio;
+            _delayUpgradeCost += _ugradeRatio;
             _currentDelayLevel++;
         }
     }
