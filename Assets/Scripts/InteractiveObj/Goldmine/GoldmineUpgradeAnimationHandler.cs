@@ -3,6 +3,7 @@ using UnityEngine;
 public class GoldmineUpgradeAnimationHandler : MonoBehaviour
 {
     [SerializeField] private GameObject[] _models;
+    [SerializeField] private ParticleSystem[] _effects;
 
     private GameObject _currentModel;
 
@@ -23,6 +24,9 @@ public class GoldmineUpgradeAnimationHandler : MonoBehaviour
                 break;
             }
         }
+
+        foreach (var effect in _effects)
+            effect.Play();
 
         _currentModel.SetActive(true);
     }

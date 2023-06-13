@@ -177,6 +177,9 @@ MonoBehaviour:
   - {fileID: 6615251175747783864}
   - {fileID: 8220677426505054155}
   - {fileID: 6217601584425275531}
+  _effects:
+  - {fileID: 5441268425804525886}
+  - {fileID: 5908816361769256035}
 --- !u!1 &5543214207044692219
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4837639962636174162
 Transform:
   m_ObjectHideFlags: 0
@@ -2014,6 +2017,22 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19806904, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19813732, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19842448, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19851814, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 19851814, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
       value: 3
@@ -2043,6 +2062,11 @@ PrefabInstance:
 --- !u!4 &5441268425786137430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 430288, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
+  m_PrefabInstance: {fileID: 5441268425786559366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5441268425804525886 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19806904, guid: 09d9de58ef3bf5444ac94afa0e6013cb, type: 3}
   m_PrefabInstance: {fileID: 5441268425786559366}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5481670888839081664
@@ -2399,6 +2423,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198199783682709742, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198325431244598998, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198325431244598998, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: SubModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198476419597470766, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198985960362854634, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 199192308494277586, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -2420,6 +2464,11 @@ PrefabInstance:
 --- !u!4 &5822923364749608967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4485129242043058, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
+  m_PrefabInstance: {fileID: 5818864854643468981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5908816361769256035 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198325431244598998, guid: 4d66c00407d4c964bac5acc674375fdb, type: 3}
   m_PrefabInstance: {fileID: 5818864854643468981}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5832395139087134731

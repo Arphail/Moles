@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,9 @@ public class RadarQuarter : MonoBehaviour
     [SerializeField] private float _longDistance;
     [SerializeField] private float _midDistance;
     [SerializeField] private float _shortDistance;
-    [SerializeField] private RawImage _longDistanceImage;
-    [SerializeField] private RawImage _midDistanceImage;
-    [SerializeField] private RawImage _shortDistanceImage;
+    [SerializeField] private Image _longDistanceImage;
+    [SerializeField] private Image _midDistanceImage;
+    [SerializeField] private Image _shortDistanceImage;
     [SerializeField] private Color _basicColor;
     [SerializeField] private Color _activeColor;
 
