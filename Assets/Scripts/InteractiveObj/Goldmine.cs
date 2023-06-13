@@ -7,6 +7,7 @@ public class Goldmine : MonoBehaviour
     [SerializeField] private Base _base;
     [SerializeField] private GoldmineUpgradeUi _ui;
     [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     public event UnityAction<Goldmine> Activated;
 
@@ -18,6 +19,7 @@ public class Goldmine : MonoBehaviour
 
     private void Start()
     {
+        _particleSystem.Stop();
         _meshRenderer.enabled = false;
         _upgrader = GetComponent<GoldmineUpgrader>();
     }
@@ -28,6 +30,7 @@ public class Goldmine : MonoBehaviour
         {
             if (IsActivated == false)
             {
+                _particleSystem.Play();
                 _meshRenderer.enabled = true;
                 Activated?.Invoke(this);
                 IsActivated = true;

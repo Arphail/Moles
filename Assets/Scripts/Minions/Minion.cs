@@ -12,6 +12,8 @@ public class Minion : MonoBehaviour
 
     public Vector3 GoldminePosition => _goldminePosition;
 
+    public bool IsStopped => _agent.isStopped;
+
     private void Update()
     {
         if (_farmer.CurrentGold < _farmer.GoldCapacity)

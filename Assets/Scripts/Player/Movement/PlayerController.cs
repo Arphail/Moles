@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _playerVelocity;
 
+    public bool IsMoving { get; private set; }
+
     private void Update()
     {
         if (_playerVelocity.y < 0)
@@ -19,8 +21,13 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero)
         {
+            IsMoving = true;
             _controller.Move(move * _playerSpeed * Time.deltaTime);
             transform.rotation = Quaternion.LookRotation(move);
+        }
+        else
+        {
+            IsMoving = false;
         }
 
         _playerVelocity.y += -_gravityValue * Time.deltaTime;
