@@ -1746,6 +1746,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4004650748375884724}
     m_Modifications:
+    - target: {fileID: 4669581466033617957, guid: 1509ee1f4d01f834383f795748d29108, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 994fc0c4aef9df04994b480fb645aabd, type: 3}
     - target: {fileID: 4669581466748974345, guid: 1509ee1f4d01f834383f795748d29108, type: 3}
       propertyPath: m_Name
       value: Raccoon

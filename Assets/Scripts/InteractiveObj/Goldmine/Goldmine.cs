@@ -6,9 +6,10 @@ public class Goldmine : MonoBehaviour
 {
     [SerializeField] private Base _base;
     [SerializeField] private GoldmineUpgradeUi _ui;
-    [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private ParticleSystem _particleSystem;
-
+    [SerializeField] private GoldmineUpgradeAnimationHandler _animationHandler;
+    [SerializeField] private GameObject _level0Model;
+ 
     public event UnityAction<Goldmine> Activated;
 
     public event UnityAction<Goldmine> Upgraded;
@@ -19,8 +20,8 @@ public class Goldmine : MonoBehaviour
 
     private void Start()
     {
+        _level0Model.SetActive(false);
         _particleSystem.Stop();
-        _meshRenderer.enabled = false;
         _upgrader = GetComponent<GoldmineUpgrader>();
     }
 
@@ -30,8 +31,8 @@ public class Goldmine : MonoBehaviour
         {
             if (IsActivated == false)
             {
+                _level0Model.SetActive(true);
                 _particleSystem.Play();
-                _meshRenderer.enabled = true;
                 Activated?.Invoke(this);
                 IsActivated = true;
             }
@@ -67,6 +68,7 @@ public class Goldmine : MonoBehaviour
         if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _base.Gold >= _upgrader.CurrentLevelCost)
         {
             _base.SpendGold(_upgrader.CurrentLevelCost);
+            _animationHandler.ChangeModel();
             _upgrader.UpgradeGoldmineMinionLimit();
             Upgraded?.Invoke(this);
         }
