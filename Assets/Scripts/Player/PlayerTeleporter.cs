@@ -2,5 +2,11 @@ using UnityEngine;
 
 public class PlayerTeleporter : MonoBehaviour
 {
-    public void Teleport(Vector3 targetPosition) => transform.position = targetPosition;
+    [SerializeField] private Transform _playerTransform;
+
+    public void Teleport(Vector3 targetPosition)
+    {
+        print("TryingToTP");
+        _playerTransform.SetPositionAndRotation(targetPosition, Quaternion.identity);
+    }
 }
