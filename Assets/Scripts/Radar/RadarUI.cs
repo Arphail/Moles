@@ -7,6 +7,6 @@ public class RadarUI : MonoBehaviour
     public void DisplayTargetDirection(float distance, Transform target)
     {
         if (target.gameObject.activeSelf == true)
-            _quarterUp.ShowDistance(distance);
+            _quarterUp.ShowDistance(distance, target);
     }
 }

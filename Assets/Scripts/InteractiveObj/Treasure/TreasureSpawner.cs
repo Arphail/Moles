@@ -7,6 +7,8 @@ public class TreasureSpawner : MonoBehaviour
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Goldmine[] _goldmines;
     [SerializeField] private Treasure _treasureTemplate;
+    [SerializeField] private Radar _radar;
+    [SerializeField] private GameObject _treasureAlertUI;
     [SerializeField] private int _delaySeconds;
 
     private WaitForSeconds _delay;
@@ -29,8 +31,25 @@ public class TreasureSpawner : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.TryGetComponent<Player>(out Player player))
-            if (_activatedGoldmines == _goldmines.Length && _isSpawned == false && _spawnWithDelay == null)
-                _spawnWithDelay = StartCoroutine(SpawnWithDelay(player.transform));
+        {
+            if (_isSpawned)
+                _treasureAlertUI.SetActive(true);
+            else
+                _treasureAlertUI.SetActive(false);
+
+            if (_activatedGoldmines == _goldmines.Length)
+            {
+                _radar.SetTreasureMode();
+
+                if (_isSpawned == false && _spawnWithDelay == null)
+                    _spawnWithDelay = StartCoroutine(SpawnWithDelay(player.transform));
+            } 
+            else if (_activatedGoldmines != _goldmines.Length)
+            {
+                _treasureAlertUI.SetActive(false);
+                _radar.SetGoldmineMode();
+            }
+        }
     }
 
     private IEnumerator SpawnWithDelay(Transform player)
@@ -50,7 +69,7 @@ public class TreasureSpawner : MonoBehaviour
 
         _spawnedTreasure.transform.LookAt(player);
         _spawnedTreasure.PickedUp += OnTreasurePickUp;
-        print("Spawned!");
+        print("Spawned");
         _isSpawned = true;
         _spawnWithDelay = null; 
     }
