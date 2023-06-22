@@ -1,19 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MinionSpawner : MonoBehaviour
 {
     [SerializeField] private Goldmine[] _goldmines;
+    [SerializeField] private Minion[] _minionPool;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Transform _base;
+    [SerializeField] private Transform _returnPoint;
 
     private List<Goldmine> _activatedGoldmines;
-
-    public bool CanSpawn { get; private set; }
-
-    public int SpawnedMinions { get; private set; }
 
     private void Start()
     {
@@ -24,33 +19,42 @@ public class MinionSpawner : MonoBehaviour
     {
         foreach (var goldmine in _goldmines)
             goldmine.Activated += OnGoldMineActivated;
+
+        foreach (var goldmine in _goldmines)
+            goldmine.Upgraded += OnGoldMineUpgraded;
     }
 
     private void OnDisable()
     {
         foreach (var goldmine in _goldmines)
             goldmine.Activated -= OnGoldMineActivated;
+
+        foreach (var goldmine in _goldmines)
+            goldmine.Upgraded -= OnGoldMineUpgraded;
     }
 
-    public void SpawnMinion(Minion minionTemplate)
+    public void SpawnMinion(Goldmine goldmine)
     {
-        if (_activatedGoldmines.Count > 0)
+        foreach (Minion minion in _minionPool)
         {
-            Minion spawnedMinion = Instantiate(minionTemplate, _spawnPoint.position, Quaternion.identity);
-            int randomGoldmineIndex = Random.Range(0, _activatedGoldmines.Count);
-            spawnedMinion.SetBase(_base.transform.position);
-            spawnedMinion.SetGoldmine(_activatedGoldmines[randomGoldmineIndex].transform.position);
-            SpawnedMinions++;
-        }
-        else
-        {
-            print("There is no activated goldmines");
+            if (minion.isActiveAndEnabled == false)
+            {
+                minion.gameObject.SetActive(true);
+                minion.SetBase(_spawnPoint.position);
+                minion.SetGoldmine(goldmine.transform.position);
+                return;
+            }
         }
     }
 
     private void OnGoldMineActivated(Goldmine goldmine)
     {
         _activatedGoldmines.Add(goldmine);
-        CanSpawn = true;
+        SpawnMinion(goldmine);
+    }
+
+    private void OnGoldMineUpgraded(Goldmine goldmine)
+    {
+        SpawnMinion(goldmine);
     }
 }

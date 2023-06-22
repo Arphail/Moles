@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,40 +7,39 @@ public class RadarQuarter : MonoBehaviour
     [SerializeField] private float _longDistance;
     [SerializeField] private float _midDistance;
     [SerializeField] private float _shortDistance;
-    [SerializeField] private RawImage _longDistanceImage;
-    [SerializeField] private RawImage _midDistanceImage;
-    [SerializeField] private RawImage _shortDistanceImage;
+    [SerializeField] private Image _longDistanceImage;
+    [SerializeField] private Image _midDistanceImage;
+    [SerializeField] private Image _shortDistanceImage;
     [SerializeField] private Color _basicColor;
-    [SerializeField] private Color _goldmineVisualColor;
-    [SerializeField] private Color _treasureVisualColor;
+    [SerializeField] private Color _goldmineColor;
+    [SerializeField] private Color _treasureColor;
 
-    private Color _currentColor;
+    private Color _currentActiveColor;
 
     public void ShowDistance(float distance, Transform target)
     {
-        if(target.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
-            _currentColor = _goldmineVisualColor;
-
-        if(target.gameObject.TryGetComponent<Treasure>(out Treasure treasure))
-            _currentColor = _treasureVisualColor;
+        if (target.TryGetComponent(out Goldmine goldmine))
+            _currentActiveColor = _goldmineColor;
+        else if (target.TryGetComponent(out Treasure treasure))
+            _currentActiveColor = _treasureColor;
 
         if (distance <= _shortDistance)
         {
-            _longDistanceImage.color = _currentColor;
-            _midDistanceImage.color = _currentColor;
-            _shortDistanceImage.color = _currentColor;
+            _longDistanceImage.color = _currentActiveColor;
+            _midDistanceImage.color = _currentActiveColor;
+            _shortDistanceImage.color = _currentActiveColor;
         }
 
         if (distance > _shortDistance && distance < _midDistance)
         {
-            _longDistanceImage.color = _currentColor;
-            _midDistanceImage.color = _currentColor;
+            _longDistanceImage.color = _currentActiveColor;
+            _midDistanceImage.color = _currentActiveColor;
             _shortDistanceImage.color = _basicColor;
         }
 
         if (distance > _midDistance && distance < _longDistance)
         {
-            _longDistanceImage.color = _currentColor;
+            _longDistanceImage.color = _currentActiveColor;
             _midDistanceImage.color = _basicColor;
             _shortDistanceImage.color = _basicColor;
         }

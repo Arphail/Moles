@@ -7,48 +7,65 @@ public class Radar : MonoBehaviour
     [SerializeField] private RadarUI _radarUI;
     [SerializeField] private float _radarMaxDistance;
 
-    private List <Transform> _targets = new List<Transform>();
+    private List <Goldmine> _goldmineList = new List<Goldmine>();
+    private Treasure _currentTreasure;
+    private bool _isLookingForTreasure;
 
     void Update()
     {
-        if (_targets != null)
+        print(_isLookingForTreasure);
+        if (_goldmineList != null && _isLookingForTreasure == false)
         {
-            foreach (var target in _targets)
+            foreach (var _goldmine in _goldmineList)
             {
-                var distance = Vector3.Distance(_radar.position, target.position);
-                var direction = target.position - _radar.position;
-                float angle = Vector3.SignedAngle(direction, _radar.forward, Vector3.up);
+                if (_goldmine.IsActivated == false)
+                {
+                    var distance = Vector3.Distance(_radar.position, _goldmine.transform.position);
 
-                if (angle > -45f && angle <= 45f)
-                    _radarUI.DisplayTargetDirection(RadarUI.Up, distance, target);
-
-                else if (angle > -135f && angle <= -45f)
-                    _radarUI.DisplayTargetDirection(RadarUI.Right, distance, target);
-
-                else if (angle > 45f && angle <= 135f)
-                    _radarUI.DisplayTargetDirection(RadarUI.Left, distance, target);
-
-                else
-                    _radarUI.DisplayTargetDirection(RadarUI.Down, distance, target);
+                    if (distance <= _radarMaxDistance)
+                        _radarUI.DisplayTargetDirection(distance, _goldmine.transform);
+                }
             }
+        }
+
+        if (_currentTreasure != null && _isLookingForTreasure)
+        {
+            var distance = Vector3.Distance(_radar.position, _currentTreasure.transform.position);
+
+            if (distance <= _radarMaxDistance)
+                _radarUI.DisplayTargetDirection(distance, _currentTreasure.transform);
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Goldmine goldmine) && _targets.Contains(goldmine.transform) == false)
+        if (other.TryGetComponent(out Goldmine goldmine) && _goldmineList.Contains(goldmine) == false)
         {
             if (goldmine.IsActivated == false)
-                _targets.Add(goldmine.transform);
+                _goldmineList.Add(goldmine);
         }
 
-        if (other.TryGetComponent(out Treasure treasure) && _targets.Contains(treasure.transform) == false)
-            _targets.Add(treasure.transform);
+        if(other.TryGetComponent(out Treasure treasure))
+        {
+            print("AddedTreasure");
+            _currentTreasure = treasure;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(_targets.Contains(other.transform) == true)
-            _targets.Remove(other.transform);
+        if(other.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
+        {
+            if (_goldmineList.Contains(goldmine) == true)
+                _goldmineList.Remove(goldmine);
+        }
+
+        if (other.TryGetComponent(out Treasure treasure))
+        {
+            _currentTreasure = null;
+        }
     }
+
+    public void SetTreasureMode() => _isLookingForTreasure = true;
+    public void SetGoldmineMode() => _isLookingForTreasure = false;
 }

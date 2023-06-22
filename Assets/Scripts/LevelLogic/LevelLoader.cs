@@ -4,15 +4,30 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     private Scene _currentScene;
+    private int _randomIndex = 0;
 
-    void Start()
+    private void Awake()
     {
+        DontDestroyOnLoad(this);
         _currentScene = SceneManager.GetActiveScene();
     }
 
-    public void LoadNextScene()
+    public void LoadNextLevel()
     {
-        if (_currentScene.buildIndex + 1 < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(_currentScene.buildIndex + 1);
+        while (_randomIndex == _currentScene.buildIndex)
+            _randomIndex = GetRandomIndex();
+
+        _currentScene = SceneManager.GetActiveScene();
+
+        if( _randomIndex != _currentScene.buildIndex)
+            SceneManager.LoadScene(_randomIndex);
+
+        print(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private int GetRandomIndex()
+    {
+        int randomSceneIndex = Random.Range(0, SceneManager.sceneCount);
+        return randomSceneIndex;
     }
 }
