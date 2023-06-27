@@ -38,8 +38,11 @@ public class Goldmine : MonoBehaviour
                 IsActivated = true;
             }
 
-            _ui.gameObject.SetActive(true);
-            _ui.Button.onClick.AddListener(UpgradeGoldmine);
+            if(_upgrader.CurrentLevel < _upgrader.MaxLevel)
+            {
+                _ui.gameObject.SetActive(true);
+                _ui.Button.onClick.AddListener(UpgradeGoldmine);
+            }
         }
     }
 
