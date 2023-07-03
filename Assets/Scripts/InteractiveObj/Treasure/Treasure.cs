@@ -6,6 +6,7 @@ public class Treasure : MonoBehaviour
 {
     [SerializeField] private GameObject _mesh;
     [SerializeField] private TreasureAnimationHandler _animationHandler;
+    [SerializeField] private SoundHandler _sound;
     [SerializeField] private int _delaySeconds;
 
     public event UnityAction<Treasure> PickedUp;
@@ -24,7 +25,7 @@ public class Treasure : MonoBehaviour
         if (other.TryGetComponent<Player>(out Player player) && _openChestWithDelay == null)
         {
             _mesh.gameObject.SetActive(true);
-            print("Now u see me");
+            _sound.PlaySound();
             _openChestWithDelay = StartCoroutine(OpenChestWithDelay());
         }
     }

@@ -12,11 +12,11 @@ public class LevelUpUI : MonoBehaviour
 
     public void ShowStats(float speedCost, float capacityCost, float delayCost, float currentSpeedLevel, float maxSpeedLevel, float currentCapacityLevel, float maxCapacityLevel, float currentDelayLevel, float maxDelayLevel)
     {
-        _currentSpeedLevelVisual.text = $"Speed level {currentSpeedLevel} / {maxSpeedLevel}";
+        _currentSpeedLevelVisual.text = $"{currentSpeedLevel} / {maxSpeedLevel}";
         _currentSpeedUpgradeCost.text = speedCost.ToString();
-        _currentCapacityLevelVisual.text = $"Capacity level {currentCapacityLevel} / {maxCapacityLevel}";
+        _currentCapacityLevelVisual.text = $"{currentCapacityLevel} / {maxCapacityLevel}";
         _currentCapacityUpgradeCost.text = capacityCost.ToString();
-        _currentDelayLevelVisual.text = $"Delay level {currentDelayLevel} / {maxDelayLevel}";
+        _currentDelayLevelVisual.text = $"{currentDelayLevel} / {maxDelayLevel}";
         _currentDelayUpgradeCost.text = delayCost.ToString();
 
         if(currentSpeedLevel == maxSpeedLevel)

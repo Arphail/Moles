@@ -9,7 +9,8 @@ public class Goldmine : MonoBehaviour
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private GoldmineUpgradeAnimationHandler _animationHandler;
     [SerializeField] private GameObject _level0Model;
-    [SerializeField] private SoundHandler _soundHandler;
+    [SerializeField] private SoundHandler _appearSound;
+    [SerializeField] private SoundHandler _upgradeSound;
  
     public event UnityAction<Goldmine> Activated;
 
@@ -32,14 +33,18 @@ public class Goldmine : MonoBehaviour
         {
             if (IsActivated == false)
             {
+                _appearSound.PlaySound();
                 _level0Model.SetActive(true);
                 _particleSystem.Play();
                 Activated?.Invoke(this);
                 IsActivated = true;
             }
 
-            _ui.gameObject.SetActive(true);
-            _ui.Button.onClick.AddListener(UpgradeGoldmine);
+            if(_upgrader.CurrentLevel < _upgrader.MaxLevel)
+            {
+                _ui.gameObject.SetActive(true);
+                _ui.Button.onClick.AddListener(UpgradeGoldmine);
+            }
         }
     }
 
@@ -69,7 +74,7 @@ public class Goldmine : MonoBehaviour
         if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _base.Gold >= _upgrader.CurrentLevelCost)
         {
             _base.SpendGold(_upgrader.CurrentLevelCost);
-            _soundHandler.PlaySound();
+            _upgradeSound.PlaySound();
             _animationHandler.ChangeModel();
             _upgrader.UpgradeGoldmineMinionLimit();
             Upgraded?.Invoke(this);

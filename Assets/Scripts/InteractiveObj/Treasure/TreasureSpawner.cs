@@ -10,6 +10,8 @@ public class TreasureSpawner : MonoBehaviour
     [SerializeField] private Radar _radar;
     [SerializeField] private GameObject _treasureAlertUI;
     [SerializeField] private int _delaySeconds;
+    [SerializeField] private Base _base;
+    [SerializeField] private int _money;
 
     private WaitForSeconds _delay;
     private Coroutine _spawnWithDelay;
@@ -77,6 +79,7 @@ public class TreasureSpawner : MonoBehaviour
     private void OnTreasurePickUp(Treasure treasure)
     {
         _isSpawned = false;
+        _base.AddGold(_money);
         treasure.PickedUp -= OnTreasurePickUp;
     }
 
