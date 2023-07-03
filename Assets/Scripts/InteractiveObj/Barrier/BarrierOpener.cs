@@ -6,6 +6,7 @@ public class BarrierOpener : MonoBehaviour
 {
     [SerializeField] private Base _base;
     [SerializeField] private BarrierUI _ui;
+    [SerializeField] private SoundHandler _soundHandler;
 
     private Barrier _currentBarrier;
 
@@ -31,6 +32,7 @@ public class BarrierOpener : MonoBehaviour
     {
         if( _currentBarrier != null && _currentBarrier.Cost <= _base.Gold)
         {
+            _soundHandler.PlaySound();
             _currentBarrier.Open();
             _base.SpendGold(_currentBarrier.Cost);
             _ui.HideButton();
