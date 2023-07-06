@@ -107,9 +107,9 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.2
-    agentHeight: 2
-    agentSlope: 25
-    agentClimb: 0.4
+    agentHeight: 1.08
+    agentSlope: 30.3
+    agentClimb: 0.94
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -1756,19 +1756,19 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[0]
       value: 
-      objectReference: {fileID: 1964863986}
+      objectReference: {fileID: 464846322}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[1]
       value: 
-      objectReference: {fileID: 1660520369}
+      objectReference: {fileID: 837808719}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 837808719}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 837808719}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner
@@ -1861,6 +1861,10 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 897309029, guid: 7eda2a4cef154e448ac7ef7e9e001af8, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
     - target: {fileID: 897309040, guid: 7eda2a4cef154e448ac7ef7e9e001af8, type: 3}
       propertyPath: _ui
       value: 
@@ -1973,6 +1977,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 1734767959}
+    - target: {fileID: 4004650748375884726, guid: 7eda2a4cef154e448ac7ef7e9e001af8, type: 3}
+      propertyPath: _playerSpeed
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4004650748559756482, guid: 7eda2a4cef154e448ac7ef7e9e001af8, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.00000006167509
@@ -7519,7 +7527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine11
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -7529,6 +7537,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -8779,7 +8795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine14
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -8789,6 +8805,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -13986,7 +14010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine (1)
+      value: Goldmine10
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -13996,6 +14020,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -14743,7 +14775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine8
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -14753,6 +14785,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -15344,15 +15384,15 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[1]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 1318232098}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner
@@ -15942,92 +15982,6 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4316734977292325565, guid: f57ce7e4db4b7344d94b3c8373ff66e2, type: 3}
   m_PrefabInstance: {fileID: 403687579}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &410081075
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 758430324}
-    m_Modifications:
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 47.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 181.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6603853
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.66038543
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.25276715
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.2527671
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -138.111
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_Name
-      value: Goldmine (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _ui
-      value: 
-      objectReference: {fileID: 812183089}
-    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _base
-      value: 
-      objectReference: {fileID: 1939820743}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _base
-      value: 
-      objectReference: {fileID: 1939820743}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _maxLevel
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _costRatio
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _levelUpCost
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
---- !u!4 &410081076 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-  m_PrefabInstance: {fileID: 410081075}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &410319448
 GameObject:
@@ -16873,7 +16827,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 897309029}
         m_TargetAssemblyTypeName: PlayerUpgrader, Assembly-CSharp
-        m_MethodName: UpgradeMoveSpeed
+        m_MethodName: BuyMoveSpeedUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16997,11 +16951,11 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner
@@ -17707,15 +17661,15 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[1]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner
@@ -17794,6 +17748,111 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 47718eec2678c824b8f4fce1c2d7be4d, type: 3}
   m_PrefabInstance: {fileID: 1113063163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &464846320
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 758430324}
+    m_Modifications:
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 181.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.64000255
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.30066067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.30066064
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -129.674
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_Name
+      value: Goldmine5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 812183089}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1939820743}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _maxLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _costRatio
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _levelUpCost
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+--- !u!4 &464846321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+  m_PrefabInstance: {fileID: 464846320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &464846322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+  m_PrefabInstance: {fileID: 464846320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &465533117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20615,7 +20674,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1586208908}
-  - {fileID: 812830860}
+  - {fileID: 1318232097}
   m_Father: {fileID: 632095805}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21997,7 +22056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine7
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -22007,6 +22066,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -22577,11 +22644,11 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner (1)
@@ -24956,7 +25023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine0
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -24966,6 +25033,10 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -25809,8 +25880,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1626913749}
-  - {fileID: 410081076}
+  - {fileID: 837808718}
+  - {fileID: 464846321}
   m_Father: {fileID: 220781630}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27673,92 +27744,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7085547175150053249, guid: 54e9bc739c9e92645b0280bb6bdccce5, type: 3}
   m_PrefabInstance: {fileID: 812363558}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &812830859
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 558317023}
-    m_Modifications:
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -36
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 74.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7030858
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7030859
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.075301856
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.07530175
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -192.226
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_Name
-      value: Goldmine (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _ui
-      value: 
-      objectReference: {fileID: 812183089}
-    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _base
-      value: 
-      objectReference: {fileID: 1939820743}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _base
-      value: 
-      objectReference: {fileID: 1939820743}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _maxLevel
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _costRatio
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _levelUpCost
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
---- !u!4 &812830860 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-  m_PrefabInstance: {fileID: 812830859}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &816918993
 GameObject:
   m_ObjectHideFlags: 0
@@ -28526,6 +28511,111 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4316734977292325565, guid: f57ce7e4db4b7344d94b3c8373ff66e2, type: 3}
   m_PrefabInstance: {fileID: 831122982}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &837808717
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 758430324}
+    m_Modifications:
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 82.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4981898
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.4981898
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5018037
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.50180364
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -89.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_Name
+      value: Goldmine6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 812183089}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1939820743}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _maxLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _costRatio
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _levelUpCost
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+--- !u!4 &837808718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+  m_PrefabInstance: {fileID: 837808717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &837808719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+  m_PrefabInstance: {fileID: 837808717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &842098893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29677,7 +29767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine (1)
+      value: Goldmine4
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -29687,6 +29777,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -36910,7 +37008,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.48302525, y: -0.000000010263727, z: 0.0000000056619465, w: 0.8756065}
+  m_LocalRotation: {x: 0.4830252, y: 0.000000028041015, z: -0.000000015468727, w: 0.8756065}
   m_LocalPosition: {x: 50, y: 21.18, z: 6.989998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -37124,11 +37222,11 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner (1)
@@ -42281,6 +42379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63a8439f86ac2547a376309ae17d3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _saver: {fileID: 1592451871}
   _minions:
   - {fileID: 1282712521}
   - {fileID: 1129622526}
@@ -45208,7 +45307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine (1)
+      value: Goldmine13
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -45218,6 +45317,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -46968,6 +47075,111 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 785653072050845107, guid: d504fa27a83014b4498fd0d0d07480fd, type: 3}
   m_PrefabInstance: {fileID: 1313081129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1318232096
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 558317023}
+    m_Modifications:
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 69.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69495916
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.69495916
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.13050574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.13050574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -201.271
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: m_Name
+      value: Goldmine3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 812183089}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _base
+      value: 
+      objectReference: {fileID: 1939820743}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _maxLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _costRatio
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _levelUpCost
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+--- !u!4 &1318232097 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+  m_PrefabInstance: {fileID: 1318232096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1318232098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+  m_PrefabInstance: {fileID: 1318232096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1318785565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49829,7 +50041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine9
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -49839,6 +50051,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -51671,7 +51891,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1113759221}
         m_TargetAssemblyTypeName: MinionUpgrader, Assembly-CSharp
-        m_MethodName: UpgradeGoldCapacity
+        m_MethodName: BuyCapacityUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59012,7 +59232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine12
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -59022,6 +59242,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -59736,7 +59964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine (1)
+      value: Goldmine1
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -59746,6 +59974,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -60161,7 +60397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: m_Name
-      value: Goldmine
+      value: Goldmine2
       objectReference: {fileID: 0}
     - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _ui
@@ -60171,6 +60407,14 @@ PrefabInstance:
       propertyPath: _base
       value: 
       objectReference: {fileID: 1939820743}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1592451871}
+    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
+      propertyPath: _serialNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
       propertyPath: _base
       value: 
@@ -60307,7 +60551,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1113759221}
         m_TargetAssemblyTypeName: MinionUpgrader, Assembly-CSharp
-        m_MethodName: UpgradeMoveSpeed
+        m_MethodName: BuyMoveSpeedUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -60643,7 +60887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742ea509935892142a121f71d89bdb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _barriersToOpen:
+  _barriers:
   - {fileID: 1856711160}
   - {fileID: 1141647795}
   - {fileID: 943215890}
@@ -60652,6 +60896,25 @@ MonoBehaviour:
   - {fileID: 1107413583}
   - {fileID: 1486134167}
   - {fileID: 1532627805}
+  _goldmines:
+  - {fileID: 730666434}
+  - {fileID: 1578795402}
+  - {fileID: 1586208911}
+  - {fileID: 1318232098}
+  - {fileID: 897563360}
+  - {fileID: 464846322}
+  - {fileID: 837808719}
+  - {fileID: 1142594549}
+  - {fileID: 352187547}
+  - {fileID: 1397491655}
+  - {fileID: 315959597}
+  - {fileID: 74106299}
+  - {fileID: 1550444588}
+  - {fileID: 1199032743}
+  - {fileID: 124689765}
+  _base: {fileID: 1939820743}
+  _minionUpgrader: {fileID: 1113759221}
+  _playerUpgrader: {fileID: 897309029}
 --- !u!114 &1592451871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61744,92 +62007,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624790053}
   m_CullTransparentMesh: 1
---- !u!1001 &1626913748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 758430324}
-    m_Modifications:
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 79.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 115.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5558209
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.555821
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.43710762
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.43710762
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -103.63599
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450691843339084693, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: m_Name
-      value: Goldmine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _ui
-      value: 
-      objectReference: {fileID: 812183089}
-    - target: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _base
-      value: 
-      objectReference: {fileID: 1939820743}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _base
-      value: 
-      objectReference: {fileID: 1939820743}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _maxLevel
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _costRatio
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749133059237785961, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-      propertyPath: _levelUpCost
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
---- !u!4 &1626913749 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1853240223145038214, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-  m_PrefabInstance: {fileID: 1626913748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627320802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 115020, guid: a0c53a09e4a37b5409b1248ebce2c376, type: 3}
@@ -62167,7 +62344,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1113759221}
         m_TargetAssemblyTypeName: MinionUpgrader, Assembly-CSharp
-        m_MethodName: UpgradeFarmDelay
+        m_MethodName: BuyDelayUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -62590,17 +62767,6 @@ Transform:
   m_Father: {fileID: 757882289}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1660520369 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-  m_PrefabInstance: {fileID: 410081075}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1669028320
 GameObject:
   m_ObjectHideFlags: 0
@@ -62644,7 +62810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.238, y: 0.108407415}
   m_AnchorMax: {x: 0.76900005, y: 0.7832964}
-  m_AnchoredPosition: {x: -0.12097168, y: 0}
+  m_AnchoredPosition: {x: -0.12109375, y: 0}
   m_SizeDelta: {x: -0.24194336, y: -1.999939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669028322
@@ -63256,11 +63422,11 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner (1)
@@ -67522,11 +67688,11 @@ PrefabInstance:
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[2]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524613, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: _goldmines.Array.data[3]
       value: 
-      objectReference: {fileID: 2127685390}
+      objectReference: {fileID: 0}
     - target: {fileID: 6207202218475524615, guid: e32547ade5c3f5048bc3e193f62430c2, type: 3}
       propertyPath: m_Name
       value: TreasureSpawner (1)
@@ -69459,7 +69625,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 897309029}
         m_TargetAssemblyTypeName: PlayerUpgrader, Assembly-CSharp
-        m_MethodName: UpgradeGoldCapacity
+        m_MethodName: BuyCapacityUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -70038,7 +70204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goldVisualisation: {fileID: 402942366}
-  _gold: 1000
+  _saver: {fileID: 1592451871}
+  _money: 1000
 --- !u!114 &1939820744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70052,21 +70219,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goldmines:
-  - {fileID: 1142594549}
   - {fileID: 730666434}
-  - {fileID: 1550444588}
-  - {fileID: 1586208911}
-  - {fileID: 124689765}
-  - {fileID: 74106299}
-  - {fileID: 1964863986}
-  - {fileID: 1397491655}
-  - {fileID: 352187547}
-  - {fileID: 1199032743}
-  - {fileID: 1660520369}
-  - {fileID: 2127685390}
   - {fileID: 1578795402}
+  - {fileID: 1586208911}
+  - {fileID: 1318232098}
   - {fileID: 897563360}
+  - {fileID: 464846322}
+  - {fileID: 837808719}
+  - {fileID: 1142594549}
+  - {fileID: 352187547}
+  - {fileID: 1397491655}
   - {fileID: 315959597}
+  - {fileID: 74106299}
+  - {fileID: 1550444588}
+  - {fileID: 1199032743}
+  - {fileID: 124689765}
   _minionPool:
   - {fileID: 1282712521}
   - {fileID: 1129622526}
@@ -70873,17 +71040,6 @@ Transform:
   m_Father: {fileID: 1986084418}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
---- !u!114 &1964863986 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-  m_PrefabInstance: {fileID: 1626913748}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1964940076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75616,7 +75772,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 897309029}
         m_TargetAssemblyTypeName: PlayerUpgrader, Assembly-CSharp
-        m_MethodName: UpgradeFarmDelay
+        m_MethodName: BuyDelayUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -75937,7 +76093,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120229152}
-  m_LocalRotation: {x: 0.48302525, y: -0.000000010263727, z: 0.0000000056619465, w: 0.8756065}
+  m_LocalRotation: {x: 0.4830252, y: 0.000000028041015, z: -0.000000015468727, w: 0.8756065}
   m_LocalPosition: {x: 50, y: 21.18, z: 6.989998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76041,17 +76197,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: eec2a0a67f1c8b243a386ec359eda522, type: 3}
---- !u!114 &2127685390 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3876254663823504445, guid: fc13ddd8927bd1b4d97efcf3806264fa, type: 3}
-  m_PrefabInstance: {fileID: 812830859}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2131788971
 PrefabInstance:
   m_ObjectHideFlags: 0

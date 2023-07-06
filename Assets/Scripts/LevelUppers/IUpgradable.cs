@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IUpgradable
 {
-    public abstract void UpgradeMoveSpeed();
-    public abstract void UpgradeGoldCapacity();
-    public abstract void UpgradeFarmDelay();
+    public abstract void BuyMoveSpeedUpgrade();
+    public abstract void BuyCapacityUpgrade();
+    public abstract void BuyDelayUpgrade();
 }

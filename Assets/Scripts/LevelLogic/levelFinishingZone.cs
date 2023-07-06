@@ -27,7 +27,7 @@ public class levelFinishingZone : MonoBehaviour
 
     public void TryLoadNextLevel()
     {
-        if (_base.Gold >= _cost)
+        if (_base.Money >= _cost)
             _levelLoader.LoadNextLevel();
         else
             print("Недостаточно золота");

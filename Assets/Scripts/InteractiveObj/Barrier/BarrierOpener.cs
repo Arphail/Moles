@@ -31,7 +31,7 @@ public class BarrierOpener : MonoBehaviour
 
     public void TryOpenBarrier()
     {
-        if( _currentBarrier != null && _currentBarrier.Cost <= _base.Gold)
+        if( _currentBarrier != null && _currentBarrier.Cost <= _base.Money)
         {
             _soundHandler.PlaySound();
             _currentBarrier.Open();

@@ -10,7 +10,7 @@ public class MinionSpawner : MonoBehaviour
 
     private List<Goldmine> _activatedGoldmines;
 
-    private void Start()
+    private void Awake()
     {
         _activatedGoldmines = new List<Goldmine>();
     }
