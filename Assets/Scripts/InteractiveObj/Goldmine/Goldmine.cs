@@ -13,7 +13,7 @@ public class Goldmine : MonoBehaviour
     [SerializeField] private SoundHandler _upgradeSound;
     [SerializeField] private DataSaver _saver;
     [SerializeField] private int _serialNumber;
- 
+
     public event UnityAction<Goldmine> Activated;
 
     public event UnityAction<Goldmine> Upgraded;
@@ -28,10 +28,6 @@ public class Goldmine : MonoBehaviour
     private void Awake()
     {
         _upgrader = GetComponent<GoldmineUpgrader>();
-    }
-
-    private void Start()
-    {
         _level0Model.SetActive(false);
         _particleSystem.Stop();
     }
@@ -41,11 +37,9 @@ public class Goldmine : MonoBehaviour
         if (other.TryGetComponent<Upgrader>(out Upgrader upgrader))
         {
             if (IsActivated == false)
-            {
                 ActivateGoldmine();
-            }
 
-            if(_upgrader.CurrentLevel < _upgrader.MaxLevel)
+            if (_upgrader.CurrentLevel < _upgrader.MaxLevel)
             {
                 _ui.gameObject.SetActive(true);
                 _ui.Button.onClick.AddListener(UpgradeGoldmine);
@@ -58,7 +52,7 @@ public class Goldmine : MonoBehaviour
         if (other.TryGetComponent<GoldFarmer>(out GoldFarmer farmer))
             farmer.StartFarm();
 
-        if(other.TryGetComponent<Upgrader>(out Upgrader upgrader) && _ui.isActiveAndEnabled == true)
+        if (other.TryGetComponent<Upgrader>(out Upgrader upgrader) && _ui.isActiveAndEnabled == true)
             _ui.ShowStats(_upgrader.CurrentLevel, _upgrader.MaxLevel, _upgrader.CurrentLevelCost);
     }
 

@@ -8,4 +8,5 @@ public static class Constants
     public const string Speed = "Speed";
     public const string Capacity = "Capacity";
     public const string Delay = "Delay";
+    public const string LeaderBoardName = "1";
 }

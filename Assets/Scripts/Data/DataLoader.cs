@@ -19,9 +19,9 @@ public class DataLoader : MonoBehaviour
 
     private void Start()
     {
-        LoadGoldminesData();
         LoadBarriersData();
         LoadMoneyData();
+        LoadGoldminesData();
         LoadUpgradesData();
     }
 

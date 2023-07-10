@@ -12,7 +12,7 @@ public class GoldmineUpgrader : MonoBehaviour
 
     public int CurrentLevelCost { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         CurrentLevelCost = _levelUpCost;
         CurrentLevel = 0;

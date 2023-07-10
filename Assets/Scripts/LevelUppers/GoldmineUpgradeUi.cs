@@ -19,4 +19,3 @@ public class GoldmineUpgradeUi : MonoBehaviour
             _levelUpCost.text = "";
     }
 }
- 
