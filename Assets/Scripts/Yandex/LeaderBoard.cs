@@ -1,19 +1,106 @@
 using Agava.YandexGames;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]  
 public class LeaderBoard : MonoBehaviour
 {
     [SerializeField] private VerticalLayoutGroup _leaderBoardView;
+    [SerializeField] private LeaderBoardUnit _leaderBoardUnitTemplate;
     [SerializeField] private LeaderBoardUnit _thePlayer;
+    [SerializeField] private int _maxLeaderboardUnits;
+    [SerializeField] private Sprite _defaultProfilePicture;
+
+    private CanvasGroup _canvasGroup;
 
     public LeaderBoardUnit ThePlayer => _thePlayer;
 
-    public void ShowPlayer()
+    private void Start()
     {
-        Leaderboard.GetPlayerEntry("1", (result) =>
+        _canvasGroup = GetComponent<CanvasGroup>();
+        _canvasGroup.blocksRaycasts = false;
+        _canvasGroup.alpha = 0;
+        ClearLeaderBoard();
+    }
+
+    public void OnOpenLeaderBoardButtonClick()
+    {
+        if (PlayerAccount.IsAuthorized)
         {
-            _thePlayer.SetValues(null, result.rank, result.player.publicName, result.score);
+            OpenLeaderBoard();
+        }
+        else
+        {
+            PlayerAccount.Authorize(OpenLeaderBoard, null);
+
+            if (PlayerAccount.IsAuthorized)
+                PlayerAccount.RequestPersonalProfileDataPermission();
+        }
+    }
+
+    public void CloseLeaderBoard()
+    {
+        _canvasGroup.alpha = 0;
+        _canvasGroup.blocksRaycasts = false;
+    } 
+
+    private void OpenLeaderBoard()
+    {
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
+        ShowPlayer();
+        BuildLeaderBoard();
+    }
+
+    private void ShowPlayer()
+    {
+        Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) => {SetPlayer(_thePlayer, result);});
+    }
+
+    private void BuildLeaderBoard()
+    {
+        ClearLeaderBoard();
+
+        Leaderboard.GetEntries(Constants.LeaderBoardName, (result) =>
+        {
+            if(result.entries.Length >= _maxLeaderboardUnits)
+            {
+                for (int i = 0; i < _maxLeaderboardUnits; i++)
+                {
+                    LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
+                    SetPlayer(tempUnit, result.entries[i]);
+                }
+            }
+            else
+            {
+                foreach(var entry in result.entries)
+                {
+                    LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
+                    SetPlayer(tempUnit, entry);
+                }
+            }
         });
+    }
+
+    private void ClearLeaderBoard()
+    {
+        if (_leaderBoardView.transform.childCount > 0)
+            for (var i = _leaderBoardView.transform.childCount - 1; i >= 0; i--)
+                Object.Destroy(_leaderBoardView.transform.GetChild(i).gameObject);
+    }
+
+    private void SetPlayer(LeaderBoardUnit tempUnit, LeaderboardEntryResponse entry)
+    {
+        if (string.IsNullOrEmpty(entry.player.publicName) == false)
+        {
+            tempUnit.SetProfileImage(entry.player.profilePicture);
+            tempUnit.SetValues(tempUnit.Avatar, entry.rank, entry.player.publicName, entry.score);
+        }
+        else
+        {
+            tempUnit.SetDefaultProfilePicture(_defaultProfilePicture);
+            tempUnit.SetValues(tempUnit.Avatar, entry.rank, "Anonymous", entry.score);
+        }
     }
 }

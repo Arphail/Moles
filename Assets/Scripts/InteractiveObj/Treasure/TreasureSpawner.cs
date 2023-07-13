@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TreasureSpawner : MonoBehaviour
@@ -9,9 +8,10 @@ public class TreasureSpawner : MonoBehaviour
     [SerializeField] private Treasure _treasureTemplate;
     [SerializeField] private Radar _radar;
     [SerializeField] private GameObject _treasureAlertUI;
-    [SerializeField] private int _delaySeconds;
     [SerializeField] private Base _base;
+    [SerializeField] private int _delaySeconds;
     [SerializeField] private int _money;
+    [SerializeField] private LeaderBoardScoreSetter _scoreSetter;
 
     private WaitForSeconds _delay;
     private Coroutine _spawnWithDelay;
@@ -71,7 +71,6 @@ public class TreasureSpawner : MonoBehaviour
 
         _spawnedTreasure.transform.LookAt(player);
         _spawnedTreasure.PickedUp += OnTreasurePickUp;
-        print("Spawned");
         _isSpawned = true;
         _spawnWithDelay = null; 
     }
@@ -80,6 +79,7 @@ public class TreasureSpawner : MonoBehaviour
     {
         _isSpawned = false;
         _base.AddGold(_money);
+        _scoreSetter.SetPlayerScore();
         treasure.PickedUp -= OnTreasurePickUp;
     }
 
