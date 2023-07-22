@@ -1,9 +1,10 @@
 using UnityEngine;
 using Agava.YandexGames;
+using System;
 
 public class AdHandler : MonoBehaviour
 {
-    public void ShowRewardedVideo() => VideoAd.Show(OnAdOpen, null, OnAdClose);
+    public void ShowRewardedVideo(Action onReward) => VideoAd.Show(OnAdOpen, onReward, OnAdClose);
 
     public void OnAdOpen()
     {
