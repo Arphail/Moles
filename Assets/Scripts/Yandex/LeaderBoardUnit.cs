@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -25,22 +24,6 @@ public class LeaderBoardUnit : MonoBehaviour
     public void SetProfileImage(string imageUrl) => StartCoroutine(SetProfileImageCoroutine(imageUrl));
 
     public void SetDefaultProfilePicture(Sprite sprite) => _avatar.sprite = sprite;
-
-   /* public IEnumerator SetProfileImageCoroutine(string imageUrl)
-    {
-        var remoteImage = new RemoteImage(imageUrl);
-        remoteImage.Download();
-
-        while (!remoteImage.IsDownloadFinished)
-            yield return null;
-
-        if (remoteImage.IsDownloadSuccessful)
-        {
-            var texture = remoteImage.Texture;
-            var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-            _avatar.sprite = sprite;
-        }
-    }*/
 
     private IEnumerator SetProfileImageCoroutine(string url)
     {

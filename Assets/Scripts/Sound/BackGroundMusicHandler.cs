@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BackGroundMusicHandler : MonoBehaviour
@@ -17,10 +16,7 @@ public class BackGroundMusicHandler : MonoBehaviour
     private void Start()
     {
         _isFirstTimePlaying = true;
-    }
 
-    private void Update()
-    {
         if (_musicPlayer == null)
             _musicPlayer = StartCoroutine(PlayMusic());
     }
@@ -50,7 +46,6 @@ public class BackGroundMusicHandler : MonoBehaviour
         {
             while (_currentIndex == _lastIndex)
                 _currentIndex = Random.Range(0, _backgroundMusicSamples.Length);
-
         }
         _lastIndex = _currentIndex;
     }
