@@ -9,4 +9,10 @@ public static class Constants
     public const string Capacity = "Capacity";
     public const string Delay = "Delay";
     public const string LeaderBoardName = "2";
+    public const string English = "English";
+    public const string Russian = "Russian";
+    public const string Turkish = "Turkish";
+    public const string AnonymousEnglish = "Anonymous";
+    public const string AnonymousRussian = "Аноним";
+    public const string AnonymousTurkish = "Anonim";
 }

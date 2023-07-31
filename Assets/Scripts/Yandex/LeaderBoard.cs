@@ -1,5 +1,4 @@
 using Agava.YandexGames;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -99,8 +98,16 @@ public class LeaderBoard : MonoBehaviour
         }
         else
         {
-            tempUnit.SetDefaultProfilePicture(_defaultProfilePicture);
-            tempUnit.SetValues(tempUnit.Avatar, entry.rank, "Anonymous", entry.score);
+            tempUnit.SetDefaultProfilePicture();
+
+            if (YandexGamesSdk.Environment.i18n.lang == "en")
+                tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousEnglish, entry.score);
+
+            if (YandexGamesSdk.Environment.i18n.lang == "ru")
+                tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousRussian, entry.score);
+
+            if (YandexGamesSdk.Environment.i18n.lang == "tr")
+                tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousTurkish, entry.score);
         }
     }
 }

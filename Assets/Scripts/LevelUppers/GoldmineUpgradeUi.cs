@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Agava.YandexGames;
 
 public class GoldmineUpgradeUi : MonoBehaviour
 {
@@ -12,7 +13,15 @@ public class GoldmineUpgradeUi : MonoBehaviour
 
     public void ShowStats(int currentLevel, int maxLevel, int currentCost)
     {
-        _currentLevelVisual.text = $"Level {currentLevel.ToString()} / {maxLevel}";
+        if (YandexGamesSdk.Environment.i18n.lang == "en")
+            _currentLevelVisual.text = $"Level {currentLevel} / {maxLevel}";
+
+        if (YandexGamesSdk.Environment.i18n.lang == "ru")
+            _currentLevelVisual.text = $"Уровень {currentLevel} / {maxLevel}";
+
+        if (YandexGamesSdk.Environment.i18n.lang == "tr")
+            _currentLevelVisual.text = $"Seviye {currentLevel} / {maxLevel}";
+
         _levelUpCost.text = currentCost.ToString();
 
         if (currentLevel == maxLevel)

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class LeaderBoardUnit : MonoBehaviour
 {
+    [SerializeField] List<Sprite> _avatars;
     [SerializeField] private Image _avatar;
     [SerializeField] private TMP_Text _rank; 
     [SerializeField] private TMP_Text _name;
@@ -23,7 +25,21 @@ public class LeaderBoardUnit : MonoBehaviour
 
     public void SetProfileImage(string imageUrl) => StartCoroutine(SetProfileImageCoroutine(imageUrl));
 
-    public void SetDefaultProfilePicture(Sprite sprite) => _avatar.sprite = sprite;
+    public void SetDefaultProfilePicture() => _avatar.sprite = SetRandomProfileImage();
+
+    private Sprite SetRandomProfileImage()
+    {
+        int randomAvatarIndex = 0;
+        randomAvatarIndex = Random.Range(0, _avatars.Count);
+
+        for(int i = 0; i < _avatars.Count; i++)
+        {
+            if (i == randomAvatarIndex)
+                return _avatars[i];
+        }
+        
+        return null;
+    }
 
     private IEnumerator SetProfileImageCoroutine(string url)
     {

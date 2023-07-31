@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class levelFinishingZone : MonoBehaviour
 {
-    [SerializeField] private LevelLoader _levelLoader;
     [SerializeField] private Base _base;
     [SerializeField] private int _cost;
     [SerializeField] private LevelFinishUi _ui;
@@ -25,11 +23,12 @@ public class levelFinishingZone : MonoBehaviour
         }
     }
 
-    public void TryLoadNextLevel()
+    public void ReloadLevel()
     {
         if (_base.Money >= _cost)
-            _levelLoader.LoadNextLevel();
-        else
-            print("Недостаточно золота");
+        {
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

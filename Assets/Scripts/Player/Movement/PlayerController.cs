@@ -23,10 +23,10 @@ public class PlayerController : MonoBehaviour
         if (_playerVelocity.y < 0)
             _playerVelocity.y = 0;
 
-        if (Device.Type.ToString() == "Desktop")
-            Move(_desktopInput);
-        else
+        if (_mobileInput != Vector3.zero)
             Move(_mobileInput);
+        else if (_desktopInput != Vector3.zero)
+            Move(_desktopInput);
 
         _playerVelocity.y += -_gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
