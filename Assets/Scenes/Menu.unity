@@ -310,7 +310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.050815742}
   m_AnchorMax: {x: 1, y: 0.80700004}
-  m_AnchoredPosition: {x: 100, y: -221.74005}
+  m_AnchoredPosition: {x: 100, y: -221.74004}
   m_SizeDelta: {x: -200, y: -221.739}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &257405615
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A\xC7G\xD6ZL\xDC\r \nK\xD6STEBEK"
+  m_text: "a\xE7g\xF6zl\xFC\nrakunlar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6af6d79221564e0409623dfe70a062db, type: 2}
   m_sharedMaterial: {fileID: -6336154159631468574, guid: 6af6d79221564e0409623dfe70a062db, type: 2}
@@ -1604,13 +1604,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: "GREEDY \nMOLES"
+    Text: 'GREEDY
+
+      RACCOONS'
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0416\u0410\u0414\u041D\u042B\u0415 \n\u041A\u0420\u041E\u0422\u042B"
+    Text: "\u0416\u0410\u0414\u041D\u042B\u0415\n\u0415\u041D\u041E\u0422\u042B"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "A\xC7G\xD6ZL\xDC\r \nK\xD6STEBEK"
+    Text: "a\xE7g\xF6zl\xFC\nrakunlar"
     Object: {fileID: 0}
 --- !u!1 &1350418383
 GameObject:
@@ -2382,10 +2384,10 @@ RectTransform:
   m_Father: {fileID: 1360832830}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.146742, y: -10.293182}
-  m_SizeDelta: {x: 2765.303, y: 1822.369}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1688729426
 GameObject:
