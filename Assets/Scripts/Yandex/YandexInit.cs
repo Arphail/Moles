@@ -24,8 +24,5 @@ public class YandexInit : MonoBehaviour
 
         if (YandexGamesSdk.Environment.i18n.lang == "tr")
             _localization.SetCurrentLanguage(Constants.Turkish);
-
-        if (YandexGamesSdk.IsInitialized)
-            InterstitialAd.Show();
     }
 }

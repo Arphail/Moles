@@ -6,6 +6,8 @@ public class AdHandler : MonoBehaviour
 {
     public void ShowRewardedVideo(Action onReward) => VideoAd.Show(OnAdOpen, onReward, OnAdClose);
 
+    public void ShowInterstitialVideo(Action onReward) => VideoAd.Show(OnAdOpen, onReward, OnAdClose);
+
     public void OnAdOpen()
     {
         AudioListener.volume = 0;

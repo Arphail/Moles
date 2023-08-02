@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
             Move(_mobileInput);
         else if (_desktopInput != Vector3.zero)
             Move(_desktopInput);
+        else
+            IsMoving = false;
 
         _playerVelocity.y += -_gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
@@ -41,10 +43,6 @@ public class PlayerController : MonoBehaviour
             IsMoving = true;
             _controller.Move(move * _playerSpeed * Time.deltaTime);
             transform.rotation = Quaternion.LookRotation(move);
-        }
-        else
-        {
-            IsMoving = false;
         }
     }
 }

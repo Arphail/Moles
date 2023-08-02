@@ -15,4 +15,5 @@ public static class Constants
     public const string AnonymousEnglish = "Anonymous";
     public const string AnonymousRussian = "Аноним";
     public const string AnonymousTurkish = "Anonim";
+    public const string FirstTimePlaying = "FirstTimePlaying";
 }

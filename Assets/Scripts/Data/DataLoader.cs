@@ -7,6 +7,7 @@ public class DataLoader : MonoBehaviour
     [SerializeField] private List<Barrier> _barriers;
     [SerializeField] private List<Goldmine> _goldmines;
     [SerializeField] private Base _base;
+    [SerializeField] private Tutorial _tutorial;
     [SerializeField] private MinionUpgrader _minionUpgrader;
     [SerializeField] private PlayerUpgrader _playerUpgrader;
 
@@ -15,10 +16,20 @@ public class DataLoader : MonoBehaviour
     private void Awake()
     {
         _saver = GetComponent<DataSaver>();
+
+        if (PlayerPrefs.HasKey(Constants.FirstTimePlaying) == false)
+            PlayerPrefs.SetInt(Constants.FirstTimePlaying, 1);
     }
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey(Constants.FirstTimePlaying))
+            if (PlayerPrefs.GetInt(Constants.FirstTimePlaying) == 1)
+            {
+                _tutorial.gameObject.SetActive(true);
+                PlayerPrefs.SetInt(Constants.FirstTimePlaying, 0);
+            }
+
         LoadBarriersData();
         LoadMoneyData();
         LoadGoldminesData();
