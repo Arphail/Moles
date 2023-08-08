@@ -18,9 +18,13 @@ public class GoldFarmer : MonoBehaviour
 
     public int GoldCapacity => _goldCapacity;
 
-    private void Start()
+    private void Awake()
     {
         _stacker = GetComponent<GoldStacker>();
+    }
+
+    private void Start()
+    {
         _farmDelay = new WaitForSeconds(_delayTime);
     }
 

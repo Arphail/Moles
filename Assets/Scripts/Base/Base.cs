@@ -4,25 +4,34 @@ using UnityEngine;
 public class Base : MonoBehaviour
 {
     [SerializeField] private TMP_Text _goldVisualisation;
-    [SerializeField] private float _gold;
+    [SerializeField] private DataSaver _saver;
+    [SerializeField] private float _money;
 
-    public float Gold => _gold;
+    public float Money => _money;
 
     private void Update()
     {
-        _goldVisualisation.text = _gold.ToString();
+        _goldVisualisation.text = _money.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out GoldFarmer farmer))
         {
-            _gold += farmer.CurrentGold;
+            AddGold(farmer.CurrentGold);
             farmer.EmptyBag();
         }
     }
 
-    public void AddGold(float goldAmount) => _gold += goldAmount;
+    public void AddGold(float goldAmount)
+    {
+        _money += goldAmount;
+        _saver.SaveMoney(_money);
+    } 
 
-    public void SpendGold(float goldAmound) => _gold -= goldAmound;
+    public void SpendGold(float goldAmound)
+    {
+        _money -= goldAmound;
+        _saver.SaveMoney(_money);
+    } 
 }

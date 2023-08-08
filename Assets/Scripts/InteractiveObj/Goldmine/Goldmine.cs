@@ -11,20 +11,25 @@ public class Goldmine : MonoBehaviour
     [SerializeField] private GameObject _level0Model;
     [SerializeField] private SoundHandler _appearSound;
     [SerializeField] private SoundHandler _upgradeSound;
- 
+    [SerializeField] private DataSaver _saver;
+    [SerializeField] private int _serialNumber;
+
     public event UnityAction<Goldmine> Activated;
 
     public event UnityAction<Goldmine> Upgraded;
 
     private GoldmineUpgrader _upgrader;
+    private int LevelCounter = 0;
 
     public bool IsActivated { get; private set; }
 
-    private void Start()
+    public int SerialNumber => _serialNumber;
+
+    private void Awake()
     {
+        _upgrader = GetComponent<GoldmineUpgrader>();
         _level0Model.SetActive(false);
         _particleSystem.Stop();
-        _upgrader = GetComponent<GoldmineUpgrader>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,15 +37,9 @@ public class Goldmine : MonoBehaviour
         if (other.TryGetComponent<Upgrader>(out Upgrader upgrader))
         {
             if (IsActivated == false)
-            {
-                _appearSound.PlaySound();
-                _level0Model.SetActive(true);
-                _particleSystem.Play();
-                Activated?.Invoke(this);
-                IsActivated = true;
-            }
+                ActivateGoldmine();
 
-            if(_upgrader.CurrentLevel < _upgrader.MaxLevel)
+            if (_upgrader.CurrentLevel < _upgrader.MaxLevel)
             {
                 _ui.gameObject.SetActive(true);
                 _ui.Button.onClick.AddListener(UpgradeGoldmine);
@@ -53,7 +52,7 @@ public class Goldmine : MonoBehaviour
         if (other.TryGetComponent<GoldFarmer>(out GoldFarmer farmer))
             farmer.StartFarm();
 
-        if(other.TryGetComponent<Upgrader>(out Upgrader upgrader) && _ui.isActiveAndEnabled == true)
+        if (other.TryGetComponent<Upgrader>(out Upgrader upgrader) && _ui.isActiveAndEnabled == true)
             _ui.ShowStats(_upgrader.CurrentLevel, _upgrader.MaxLevel, _upgrader.CurrentLevelCost);
     }
 
@@ -71,13 +70,35 @@ public class Goldmine : MonoBehaviour
 
     public void UpgradeGoldmine()
     {
-        if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _base.Gold >= _upgrader.CurrentLevelCost)
+        if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _base.Money >= _upgrader.CurrentLevelCost)
         {
             _base.SpendGold(_upgrader.CurrentLevelCost);
             _upgradeSound.PlaySound();
             _animationHandler.ChangeModel();
             _upgrader.UpgradeGoldmineMinionLimit();
             Upgraded?.Invoke(this);
+            LevelCounter++;
+
+            if (LevelCounter > PlayerPrefs.GetInt(_saver.GoldmineLevels[SerialNumber].ToString()))
+                _saver.SaveGoldmineLevel(SerialNumber, LevelCounter);
         }
+    }
+
+    public void CatchLevels()
+    {
+        _animationHandler.ChangeModel();
+        _upgrader.UpgradeGoldmineMinionLimit();
+        Upgraded?.Invoke(this);
+        LevelCounter++;
+    }
+
+    public void ActivateGoldmine()
+    {
+        _saver.SaveGoldmine(SerialNumber);
+        _appearSound.PlaySound();
+        _level0Model.SetActive(true);
+        _particleSystem.Play();
+        Activated?.Invoke(this);
+        IsActivated = true;
     }
 }

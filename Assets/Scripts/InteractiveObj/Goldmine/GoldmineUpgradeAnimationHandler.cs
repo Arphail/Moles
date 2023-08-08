@@ -7,7 +7,7 @@ public class GoldmineUpgradeAnimationHandler : MonoBehaviour
 
     private GameObject _currentModel;
 
-    private void Start()
+    private void Awake()
     {
         _currentModel = _models[0];
     }

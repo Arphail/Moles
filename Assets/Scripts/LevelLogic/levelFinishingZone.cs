@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Agava.YandexGames;
 
 public class levelFinishingZone : MonoBehaviour
 {
-    [SerializeField] private LevelLoader _levelLoader;
     [SerializeField] private Base _base;
     [SerializeField] private int _cost;
     [SerializeField] private LevelFinishUi _ui;
+    [SerializeField] private AdHandler _adHandler;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,11 +25,17 @@ public class levelFinishingZone : MonoBehaviour
         }
     }
 
-    public void TryLoadNextLevel()
+    public void RestartLevel()
     {
-        if (_base.Gold >= _cost)
-            _levelLoader.LoadNextLevel();
+        if (_base.Money >= _cost)
+            _adHandler.ShowInterstitialVideo(ReloadLevel);
         else
-            print("Недостаточно золота");
+            return;
+    }
+
+    private void ReloadLevel()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MinionUpgrader : MonoBehaviour, IUpgradable
 {
+    [SerializeField] private DataSaver _saver;
     [SerializeField] private Minion[] _minions;
     [SerializeField] private LevelUpUI _ui;
     [SerializeField] private Base _base;
     [SerializeField] private int _speedUpgradeValue;
-    [SerializeField] private float _speedMaxLevel;
-    [SerializeField] private float _speedUpgradeCost;
-    [SerializeField] private float _capacityMaxLevel;
-    [SerializeField] private float _capacityUpgradeCost;
-    [SerializeField] private float _delayMaxLevel;
-    [SerializeField] private float _delayUpgradeCost;
+    [SerializeField] private int _speedMaxLevel;
+    [SerializeField] private int _speedUpgradeCost;
+    [SerializeField] private int _capacityMaxLevel;
+    [SerializeField] private int _capacityUpgradeCost;
+    [SerializeField] private int _delayMaxLevel;
+    [SerializeField] private int _delayUpgradeCost;
 
-    private float _ugradeRatio = 15;
-    private float _currentSpeedLevel = 1;
-    private float _currentCapacityLevel = 1;
-    private float _currentDelayLevel = 1;
+    private int _ugradeRatio = 15;
+    private int _currentSpeedLevel = 1;
+    private int _currentCapacityLevel = 1;
+    private int _currentDelayLevel = 1;
 
     private void Update()
     {
@@ -37,42 +36,60 @@ public class MinionUpgrader : MonoBehaviour, IUpgradable
             _ui.gameObject.SetActive(false);
     }
 
+    public void BuyMoveSpeedUpgrade()
+    {
+        if (_currentSpeedLevel < _speedMaxLevel && _base.Money >= _speedUpgradeCost)
+        {
+            _base.SpendGold(_speedUpgradeCost);
+            UpgradeMoveSpeed();
+            _saver.SaveLevel(Constants.MinionLevel, Constants.Speed, _currentSpeedLevel);
+        }
+    }
+
     public void UpgradeMoveSpeed()
     {
-        if (_currentSpeedLevel < _speedMaxLevel && _base.Gold >= _speedUpgradeCost)
-        {
-            foreach (var minion in _minions)
-                minion.UpgradeMovementSpeed(_speedUpgradeValue);
+        foreach (var minion in _minions)
+            minion.UpgradeMovementSpeed(_speedUpgradeValue);
 
-            _base.SpendGold(_speedUpgradeCost);
-            _speedUpgradeCost += _ugradeRatio;
-            _currentSpeedLevel++;
+        _speedUpgradeCost += _ugradeRatio;
+        _currentSpeedLevel++;
+    }
+
+    public void BuyCapacityUpgrade()
+    {
+        if (_currentCapacityLevel < _capacityMaxLevel && _base.Money >= _capacityUpgradeCost)
+        {
+            _base.SpendGold(_capacityUpgradeCost);
+            UpgradeGoldCapacity();
+            _saver.SaveLevel(Constants.MinionLevel, Constants.Capacity, _currentCapacityLevel);
         }
     }
 
     public void UpgradeGoldCapacity()
     {
-        if (_currentCapacityLevel < _capacityMaxLevel && _base.Gold >= _capacityUpgradeCost)
-        {
-            foreach (var minion in _minions)
-                minion.UpgradeCapacity();
+        foreach (var minion in _minions)
+            minion.UpgradeCapacity();
 
-            _base.SpendGold(_capacityUpgradeCost);
-            _capacityUpgradeCost += _ugradeRatio;
-            _currentCapacityLevel++;
+        _capacityUpgradeCost += _ugradeRatio;
+        _currentCapacityLevel++;
+    }
+
+    public void BuyDelayUpgrade()
+    {
+        if (_currentDelayLevel < _delayMaxLevel && _base.Money >= _delayUpgradeCost)
+        {
+            _base.SpendGold(_delayUpgradeCost);
+            UpgradeFarmDelay();
+            _saver.SaveLevel(Constants.MinionLevel, Constants.Delay, _currentDelayLevel);
         }
     }
 
     public void UpgradeFarmDelay()
     {
-        if (_currentDelayLevel < _delayMaxLevel && _base.Gold >= _delayUpgradeCost)
-        {
-            foreach (var minion in _minions)
-                minion.UpgradeDelay();
+        foreach (var minion in _minions)
+            minion.UpgradeDelay();
 
-            _base.SpendGold(_delayUpgradeCost);
-            _delayUpgradeCost += _ugradeRatio;
-            _currentDelayLevel++;
-        }
+        _delayUpgradeCost += _ugradeRatio;
+        _currentDelayLevel++;
     }
 }
