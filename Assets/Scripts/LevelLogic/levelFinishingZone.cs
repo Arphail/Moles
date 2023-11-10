@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Agava.YandexGames;
 
 public class levelFinishingZone : MonoBehaviour
 {
     [SerializeField] private Base _base;
     [SerializeField] private int _cost;
     [SerializeField] private LevelFinishUi _ui;
-    [SerializeField] private AdHandler _adHandler;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +26,7 @@ public class levelFinishingZone : MonoBehaviour
     public void RestartLevel()
     {
         if (_base.Money >= _cost)
-            _adHandler.ShowInterstitialVideo(ReloadLevel);
+            ReloadLevel();
         else
             return;
     }

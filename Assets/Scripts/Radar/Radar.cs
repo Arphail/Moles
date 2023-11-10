@@ -13,7 +13,6 @@ public class Radar : MonoBehaviour
 
     void Update()
     {
-        print(_isLookingForTreasure);
         if (_goldmineList != null && _isLookingForTreasure == false)
         {
             foreach (var _goldmine in _goldmineList)
@@ -40,30 +39,21 @@ public class Radar : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Goldmine goldmine) && _goldmineList.Contains(goldmine) == false)
-        {
             if (goldmine.IsActivated == false)
                 _goldmineList.Add(goldmine);
-        }
 
         if(other.TryGetComponent(out Treasure treasure))
-        {
-            print("AddedTreasure");
             _currentTreasure = treasure;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
-        {
             if (_goldmineList.Contains(goldmine) == true)
                 _goldmineList.Remove(goldmine);
-        }
 
         if (other.TryGetComponent(out Treasure treasure))
-        {
             _currentTreasure = null;
-        }
     }
 
     public void SetTreasureMode() => _isLookingForTreasure = true;

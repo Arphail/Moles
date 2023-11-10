@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RuningInBackroundSoundController : MonoBehaviour
 {
+    [SerializeField] private AdHandler _adHandler;
+
     private void OnEnable()
     {
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
@@ -15,7 +17,10 @@ public class RuningInBackroundSoundController : MonoBehaviour
 
     private void OnInBackgroundChange(bool inBackground)
     {
-        AudioListener.pause = inBackground;
-        AudioListener.volume = inBackground ? 0f : 1f;
+        if(_adHandler.AdIsRunning == false)
+        {
+            AudioListener.pause = inBackground;
+            AudioListener.volume = inBackground ? 0f : 1f;
+        }
     }
 }

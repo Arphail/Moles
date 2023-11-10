@@ -53,18 +53,15 @@ public class DataLoader : MonoBehaviour
         for(int i = 0; i < _goldmines.Count; i++)
         {
             _saver.SetGoldmine(_goldmines[i].SerialNumber);
-            print("GoldmineSetted");
 
             if(PlayerPrefs.HasKey(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()))
             {
                 if (PlayerPrefs.GetInt(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()) == 1)
                 {
                     _goldmines[i].ActivateGoldmine();
-                    print("Goldmine activated");
 
                     for (int j = 0; j < PlayerPrefs.GetInt(_saver.GoldmineLevels[i].ToString()); j++)
                     {
-                        print("Goldmine upgraded");
                         _goldmines[i].CatchLevels();
                     }
                 }

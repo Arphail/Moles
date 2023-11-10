@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Agava.YandexGames;
 
 public class Tutorial : MonoBehaviour
 {
@@ -9,12 +10,19 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private Button _nextPage;
     [SerializeField] private Button _previousPage;
     [SerializeField] private TMP_Text _currentPageVisual;
+    [SerializeField] private Image _mobileControlsPage;
+    [SerializeField] private Image _desktopControlsPage;
 
     private Image _currentPage;
     private int _currentPageIndex;
 
     private void Start()
     {
+        if (Device.Type.ToString() == "Desktop")
+            _tutorialPages[0] = _desktopControlsPage;
+        else
+            _tutorialPages[0] = _mobileControlsPage;
+
         _currentPage = _tutorialPages[0];
         _currentPageIndex = 0;
         _currentPage.gameObject.SetActive(true);
