@@ -3,13 +3,13 @@ using UnityEngine;
 public class PlayerAnimationHandler : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private PlayerController _controller;
+    [SerializeField] private PlayerMovement _controller;
 
     private void Update()
     {
         if (_controller.IsMoving)
-            _animator.SetBool("IsWalking", true);
+            _animator.SetBool(Constants.IsWalkingTrigger, true);
         else
-            _animator.SetBool("IsWalking", false);
+            _animator.SetBool(Constants.IsWalkingTrigger, false);
     }
 }

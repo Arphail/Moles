@@ -1,7 +1,7 @@
 using UnityEngine;
 using Agava.YandexGames;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController _controller;
     [SerializeField] private FloatingJoystick _joystick;

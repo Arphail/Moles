@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using Agava.YandexGames;
 
 public class MoneyForAdButton : MonoBehaviour
 {

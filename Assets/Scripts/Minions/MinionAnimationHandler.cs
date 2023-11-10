@@ -8,8 +8,8 @@ public class MinionAnimationHandler : MonoBehaviour
     private void Update()
     {
         if (_minion.IsStopped == false)
-            _animator.SetBool("IsWalking", true);
+            _animator.SetBool(Constants.IsWalkingTrigger, true);
         else
-            _animator.SetBool("IsWalking", false);
+            _animator.SetBool(Constants.IsWalkingTrigger, false);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(GoldFarmer))]
 public class PlayerUpgrader : MonoBehaviour, IUpgradable
 {
@@ -15,7 +15,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
     [SerializeField] private int _delayUpgradeCost;
 
     private GoldFarmer _farmer;
-    private PlayerController _controller;
+    private PlayerMovement _controller;
     private int _ugradeRatio = 15;
     private int _currentSpeedLevel = 1;
     private int _currentCapacityLevel = 1;
@@ -24,7 +24,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
     private void Start()
     {
         _farmer = GetComponent<GoldFarmer>();
-        _controller = GetComponent<PlayerController>();
+        _controller = GetComponent<PlayerMovement>();
     }
 
     private void Update()

@@ -39,9 +39,5 @@ public class BarrierOpener : MonoBehaviour
             _base.SpendGold(_currentBarrier.Cost);
             _ui.HideButton();
         }
-        else
-        {
-            print("Недостаточно золота.");
-        }
     }
 }

@@ -60,6 +60,7 @@ public class GoldFarmer : MonoBehaviour
     private IEnumerator FarmGold()
     {
         yield return _farmDelay;
+
         while (_currentGold < _goldCapacity)
         {
             _currentGold++;

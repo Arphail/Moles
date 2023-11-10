@@ -24,12 +24,14 @@ public class DataLoader : MonoBehaviour
     private void Start()
     {
         if (PlayerPrefs.HasKey(Constants.FirstTimePlaying))
+        {
             if (PlayerPrefs.GetInt(Constants.FirstTimePlaying) == 1)
             {
                 _tutorial.gameObject.SetActive(true);
                 PlayerPrefs.SetInt(Constants.FirstTimePlaying, 0);
             }
-
+        }
+            
         LoadBarriersData();
         LoadMoneyData();
         LoadGoldminesData();
@@ -43,8 +45,12 @@ public class DataLoader : MonoBehaviour
             _saver.SetBarrier(_barriers[i].SerialNumber);
 
             if (PlayerPrefs.HasKey(Constants.Barrier + _saver.BarrierNumbers[i].ToString()))
+            {
                 if (PlayerPrefs.GetInt(Constants.Barrier + _saver.BarrierNumbers[i].ToString()) == 1)
+                {
                     _barriers[i].Open();
+                }
+            }
         }
     }
 
