@@ -1,22 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(GoldmineUpgrader))]
 public class Goldmine : MonoBehaviour
 {
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _moneyStash;
     [SerializeField] private GoldmineUpgradeUi _ui;
     [SerializeField] private ParticleSystem _particleSystem;
-    [SerializeField] private GoldmineUpgradeAnimationHandler _animationHandler;
+    [SerializeField] private GoldmineModelChanger _animationHandler;
     [SerializeField] private GameObject _level0Model;
-    [SerializeField] private SoundHandler _appearSound;
-    [SerializeField] private SoundHandler _upgradeSound;
+    [SerializeField] private AudioSource _appearSound;
+    [SerializeField] private AudioSource _upgradeSound;
     [SerializeField] private DataSaver _saver;
     [SerializeField] private int _serialNumber;
 
-    public event UnityAction<Goldmine> Activated;
+    public event Action<Goldmine> Activated;
 
-    public event UnityAction<Goldmine> Upgraded;
+    public event Action<Goldmine> Upgraded;
 
     private GoldmineUpgrader _upgrader;
     private int LevelCounter = 0;
@@ -70,10 +71,10 @@ public class Goldmine : MonoBehaviour
 
     public void UpgradeGoldmine()
     {
-        if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _base.Money >= _upgrader.CurrentLevelCost)
+        if (_upgrader.CurrentLevel < _upgrader.MaxLevel && _moneyStash.Money >= _upgrader.CurrentLevelCost)
         {
-            _base.SpendGold(_upgrader.CurrentLevelCost);
-            _upgradeSound.PlaySound();
+            _moneyStash.SpendGold(_upgrader.CurrentLevelCost);
+            _upgradeSound.Play();
             _animationHandler.ChangeModel();
             _upgrader.UpgradeGoldmineMinionLimit();
             Upgraded?.Invoke(this);
@@ -95,7 +96,7 @@ public class Goldmine : MonoBehaviour
     public void ActivateGoldmine()
     {
         _saver.SaveGoldmine(SerialNumber);
-        _appearSound.PlaySound();
+        _appearSound.Play();
         _level0Model.SetActive(true);
         _particleSystem.Play();
         Activated?.Invoke(this);

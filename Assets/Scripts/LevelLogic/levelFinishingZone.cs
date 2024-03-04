@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class levelFinishingZone : MonoBehaviour
 {
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private int _cost;
     [SerializeField] private LevelFinishUi _ui;
 

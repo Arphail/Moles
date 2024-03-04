@@ -8,7 +8,7 @@ public class TreasureSpawner : MonoBehaviour
     [SerializeField] private Treasure _treasureTemplate;
     [SerializeField] private Radar _radar;
     [SerializeField] private GameObject _treasureAlertUI;
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private int _delaySeconds;
     [SerializeField] private int _money;
     [SerializeField] private LeaderBoardScoreSetter _scoreSetter;

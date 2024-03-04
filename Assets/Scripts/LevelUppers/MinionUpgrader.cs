@@ -5,7 +5,7 @@ public class MinionUpgrader : MonoBehaviour, IUpgradable
     [SerializeField] private DataSaver _saver;
     [SerializeField] private Minion[] _minions;
     [SerializeField] private LevelUpUI _ui;
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private int _speedUpgradeValue;
     [SerializeField] private int _speedMaxLevel;
     [SerializeField] private int _speedUpgradeCost;

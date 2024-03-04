@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class BarrierOpener : MonoBehaviour
 {
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private BarrierUI _ui;
-    [SerializeField] private SoundHandler _soundHandler;
+    [SerializeField] private AudioSource _soundHandler;
     [SerializeField] private DataSaver _saver;
 
     private Barrier _currentBarrier;
+
+    public void TryOpenBarrier()
+    {
+        if( _currentBarrier != null && _currentBarrier.Cost <= _base.Money)
+        {
+            _soundHandler.Play();
+            _currentBarrier.Open();
+            _saver.SaveBarrier(_currentBarrier.SerialNumber);
+            _base.SpendGold(_currentBarrier.Cost);
+            _ui.HideButton();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,18 +38,6 @@ public class BarrierOpener : MonoBehaviour
         {
             _ui.HideButton();
             _currentBarrier = null;
-        }
-    }
-
-    public void TryOpenBarrier()
-    {
-        if( _currentBarrier != null && _currentBarrier.Cost <= _base.Money)
-        {
-            _soundHandler.PlaySound();
-            _currentBarrier.Open();
-            _saver.SaveBarrier(_currentBarrier.SerialNumber);
-            _base.SpendGold(_currentBarrier.Cost);
-            _ui.HideButton();
         }
     }
 }

@@ -6,7 +6,7 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
 {
     [SerializeField] private DataSaver _saver;  
     [SerializeField] private LevelUpUI _ui;
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private int _speedMaxLevel;
     [SerializeField] private int _speedUpgradeCost;
     [SerializeField] private int _capacityMaxLevel;

@@ -4,7 +4,7 @@ using System;
 public class MoneyForAdButton : MonoBehaviour
 {
     [SerializeField] private AdHandler _handler;
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private int _reward;
 
     private Action _giveMoney;

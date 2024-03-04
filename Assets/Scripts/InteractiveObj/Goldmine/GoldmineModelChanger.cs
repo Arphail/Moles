@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoldmineUpgradeAnimationHandler : MonoBehaviour
+public class GoldmineModelChanger : MonoBehaviour
 {
     [SerializeField] private GameObject[] _models;
     [SerializeField] private ParticleSystem[] _effects;

@@ -6,7 +6,7 @@ public class DataLoader : MonoBehaviour
 {
     [SerializeField] private List<Barrier> _barriers;
     [SerializeField] private List<Goldmine> _goldmines;
-    [SerializeField] private Base _base;
+    [SerializeField] private MoneyStash _base;
     [SerializeField] private Tutorial _tutorial;
     [SerializeField] private MinionUpgrader _minionUpgrader;
     [SerializeField] private PlayerUpgrader _playerUpgrader;

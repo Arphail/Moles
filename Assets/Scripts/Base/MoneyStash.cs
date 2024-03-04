@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Base : MonoBehaviour
+public class MoneyStash : MonoBehaviour
 {
     [SerializeField] private TMP_Text _goldVisualisation;
     [SerializeField] private DataSaver _saver;
@@ -14,6 +14,18 @@ public class Base : MonoBehaviour
         _goldVisualisation.text = _money.ToString();
     }
 
+    public void AddGold(float goldAmount)
+    {
+        _money += goldAmount;
+        _saver.SaveMoney(_money);
+    }
+
+    public void SpendGold(float goldAmound)
+    {
+        _money -= goldAmound;
+        _saver.SaveMoney(_money);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out GoldFarmer farmer))
@@ -22,16 +34,4 @@ public class Base : MonoBehaviour
             farmer.EmptyBag();
         }
     }
-
-    public void AddGold(float goldAmount)
-    {
-        _money += goldAmount;
-        _saver.SaveMoney(_money);
-    } 
-
-    public void SpendGold(float goldAmound)
-    {
-        _money -= goldAmound;
-        _saver.SaveMoney(_money);
-    } 
 }
