@@ -31,7 +31,7 @@ public class DataLoader : MonoBehaviour
                 PlayerPrefs.SetInt(Constants.FirstTimePlaying, 0);
             }
         }
-            
+
         LoadBarriersData();
         LoadMoneyData();
         LoadGoldminesData();
@@ -56,11 +56,11 @@ public class DataLoader : MonoBehaviour
 
     private void LoadGoldminesData()
     {
-        for(int i = 0; i < _goldmines.Count; i++)
+        for (int i = 0; i < _goldmines.Count; i++)
         {
             _saver.SetGoldmine(_goldmines[i].SerialNumber);
 
-            if(PlayerPrefs.HasKey(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()))
+            if (PlayerPrefs.HasKey(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()))
             {
                 if (PlayerPrefs.GetInt(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()) == 1)
                 {
@@ -79,7 +79,7 @@ public class DataLoader : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(Constants.Money))
             _base.AddGold(PlayerPrefs.GetFloat(Constants.Money));
-    } 
+    }
 
     private void LoadUpgradesData()
     {

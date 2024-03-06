@@ -9,10 +9,10 @@ public class Treasure : MonoBehaviour
     [SerializeField] private AudioSource _sound;
     [SerializeField] private int _delaySeconds;
 
-    public event UnityAction<Treasure> PickedUp;
-
     private WaitForSeconds _delay;
     private Coroutine _openChestWithDelay;
+
+    public event UnityAction<Treasure> PickedUp;
 
     private void OnEnable()
     {

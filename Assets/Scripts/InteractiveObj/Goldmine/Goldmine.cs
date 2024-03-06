@@ -15,12 +15,12 @@ public class Goldmine : MonoBehaviour
     [SerializeField] private DataSaver _saver;
     [SerializeField] private int _serialNumber;
 
+    private GoldmineUpgrader _upgrader;
+    private int LevelCounter = 0;
+
     public event Action<Goldmine> Activated;
 
     public event Action<Goldmine> Upgraded;
-
-    private GoldmineUpgrader _upgrader;
-    private int LevelCounter = 0;
 
     public bool IsActivated { get; private set; }
 

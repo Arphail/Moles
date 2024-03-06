@@ -1,6 +1,6 @@
-using UnityEngine;
 using Agava.YandexGames;
 using Lean.Localization;
+using UnityEngine;
 
 public class AutoLocalization : MonoBehaviour
 {

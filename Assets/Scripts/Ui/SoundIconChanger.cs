@@ -19,7 +19,7 @@ public class SoundIconChanger : MonoBehaviour
         else
         {
             _icon.sprite = _muted;
-            _isMuted=true;
+            _isMuted = true;
         }
     }
 }

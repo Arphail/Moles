@@ -7,7 +7,7 @@ public class PortalToBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.TryGetComponent<PlayerTeleporter>(out PlayerTeleporter teleporter))
+        if (other.gameObject.TryGetComponent<PlayerTeleporter>(out PlayerTeleporter teleporter))
         {
             _soundHandler.Play();
             teleporter.Teleport(_base.position);

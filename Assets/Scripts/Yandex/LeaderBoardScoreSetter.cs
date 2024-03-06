@@ -9,7 +9,7 @@ public class LeaderBoardScoreSetter : MonoBehaviour
 
         Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) =>
         {
-            if(result != null)
+            if (result != null)
             {
                 previousScore = result.score;
                 Leaderboard.SetScore(Constants.LeaderBoardName, ++previousScore);
@@ -21,4 +21,3 @@ public class LeaderBoardScoreSetter : MonoBehaviour
         });
     }
 }
-    

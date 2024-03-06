@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 public class LeaderBoardUnit : MonoBehaviour
 {
-    [SerializeField] List<Sprite> _avatars;
+    [SerializeField] private List<Sprite> _avatars;
     [SerializeField] private Image _avatar;
-    [SerializeField] private TMP_Text _rank; 
+    [SerializeField] private TMP_Text _rank;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _score;
 
     public Image Avatar => _avatar;
-    
+
     public void SetValues(Image avatar, float rank, string name, float score)
     {
         _rank.text = rank.ToString();
@@ -32,12 +32,12 @@ public class LeaderBoardUnit : MonoBehaviour
         int randomAvatarIndex = 0;
         randomAvatarIndex = Random.Range(0, _avatars.Count);
 
-        for(int i = 0; i < _avatars.Count; i++)
+        for (int i = 0; i < _avatars.Count; i++)
         {
             if (i == randomAvatarIndex)
                 return _avatars[i];
         }
-        
+
         return null;
     }
 

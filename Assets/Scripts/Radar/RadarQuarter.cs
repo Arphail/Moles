@@ -43,7 +43,7 @@ public class RadarQuarter : MonoBehaviour
             _shortDistanceImage.color = _basicColor;
         }
 
-        if(distance > _longDistance)
+        if (distance > _longDistance)
         {
             _longDistanceImage.color = _basicColor;
             _midDistanceImage.color = _basicColor;

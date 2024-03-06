@@ -17,8 +17,9 @@ public class Minion : MonoBehaviour
     private void Update()
     {
         if (_farmer.CurrentGold < _farmer.GoldCapacity)
+        {
             WalkToDestination(_goldminePosition);
-
+        }
         else if (_farmer.CurrentGold == _farmer.GoldCapacity)
         {
             WalkToDestination(_basePosition);

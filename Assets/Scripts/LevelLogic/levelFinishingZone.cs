@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class levelFinishingZone : MonoBehaviour
+public class LevelFinishingZone : MonoBehaviour
 {
     [SerializeField] private MoneyStash _base;
     [SerializeField] private int _cost;

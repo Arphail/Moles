@@ -2,7 +2,7 @@ using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CanvasGroup))]  
+[RequireComponent(typeof(CanvasGroup))]
 public class LeaderBoard : MonoBehaviour
 {
     [SerializeField] private VerticalLayoutGroup _leaderBoardView;
@@ -46,7 +46,7 @@ public class LeaderBoard : MonoBehaviour
         _blackBacking.gameObject.SetActive(true);
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
-    } 
+    }
 
     private void OpenLeaderBoard()
     {
@@ -64,7 +64,7 @@ public class LeaderBoard : MonoBehaviour
 
     private void ShowPlayer()
     {
-        Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) => {SetPlayer(_thePlayer, result);});
+        Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) => { SetPlayer(_thePlayer, result); });
     }
 
     private void BuildLeaderBoard()
@@ -73,7 +73,7 @@ public class LeaderBoard : MonoBehaviour
 
         Leaderboard.GetEntries(Constants.LeaderBoardName, (result) =>
         {
-            if(result.entries.Length >= _maxLeaderboardUnits)
+            if (result.entries.Length >= _maxLeaderboardUnits)
             {
                 for (int i = 0; i < _maxLeaderboardUnits; i++)
                 {
@@ -83,7 +83,7 @@ public class LeaderBoard : MonoBehaviour
             }
             else
             {
-                foreach(var entry in result.entries)
+                foreach (var entry in result.entries)
                 {
                     LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
                     SetPlayer(tempUnit, entry);

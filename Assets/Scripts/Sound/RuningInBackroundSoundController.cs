@@ -17,7 +17,7 @@ public class RuningInBackroundSoundController : MonoBehaviour
 
     private void OnInBackgroundChange(bool inBackground)
     {
-        if(_adHandler.AdIsRunning == false)
+        if (_adHandler.AdIsRunning == false)
         {
             AudioListener.pause = inBackground;
             AudioListener.volume = inBackground ? 0f : 1f;

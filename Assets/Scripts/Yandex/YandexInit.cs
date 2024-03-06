@@ -1,6 +1,6 @@
+using System.Collections;
 using Agava.YandexGames;
 using Lean.Localization;
-using System.Collections;
 using UnityEngine;
 
 public class YandexInit : MonoBehaviour
@@ -18,7 +18,7 @@ public class YandexInit : MonoBehaviour
 
         if (YandexGamesSdk.Environment.i18n.lang == "en")
             _localization.SetCurrentLanguage(Constants.English);
-         
+
         if (YandexGamesSdk.Environment.i18n.lang == "ru")
             _localization.SetCurrentLanguage(Constants.Russian);
 

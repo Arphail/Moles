@@ -19,13 +19,13 @@ public class LevelUpUI : MonoBehaviour
         _currentDelayLevelVisual.text = $"{currentDelayLevel} / {maxDelayLevel}";
         _currentDelayUpgradeCost.text = delayCost.ToString();
 
-        if(currentSpeedLevel == maxSpeedLevel)
-            _currentSpeedUpgradeCost.text = "";
+        if (currentSpeedLevel == maxSpeedLevel)
+            _currentSpeedUpgradeCost.text = string.Empty;
 
         if (currentCapacityLevel == maxCapacityLevel)
-            _currentCapacityUpgradeCost.text = "";
+            _currentCapacityUpgradeCost.text = string.Empty;
 
         if (currentDelayLevel == maxDelayLevel)
-            _currentDelayUpgradeCost.text = "";
+            _currentDelayUpgradeCost.text = string.Empty;
     }
 }

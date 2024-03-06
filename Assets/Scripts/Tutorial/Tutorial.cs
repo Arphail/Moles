@@ -1,12 +1,12 @@
 using System.Collections.Generic;
+using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Agava.YandexGames;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private List <Image> _tutorialPages;
+    [SerializeField] private List<Image> _tutorialPages;
     [SerializeField] private Button _nextPage;
     [SerializeField] private Button _previousPage;
     [SerializeField] private TMP_Text _currentPageVisual;
@@ -47,7 +47,7 @@ public class Tutorial : MonoBehaviour
 
     public void NextPage()
     {
-        for(int i = 0; i < _tutorialPages.Count; i++)
+        for (int i = 0; i < _tutorialPages.Count; i++)
         {
             if (_currentPage == _tutorialPages[i])
             {
@@ -58,6 +58,7 @@ public class Tutorial : MonoBehaviour
             }
         }
     }
+
     public void PreviousPage()
     {
         for (int i = 0; i < _tutorialPages.Count; i++)

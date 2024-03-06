@@ -7,22 +7,22 @@ public class Radar : MonoBehaviour
     [SerializeField] private RadarUI _radarUI;
     [SerializeField] private float _radarMaxDistance;
 
-    private List <Goldmine> _goldmineList = new List<Goldmine>();
+    private List<Goldmine> _goldmineList = new List<Goldmine>();
     private Treasure _currentTreasure;
     private bool _isLookingForTreasure;
 
-    void Update()
+    private void Update()
     {
         if (_goldmineList != null && _isLookingForTreasure == false)
         {
-            foreach (var _goldmine in _goldmineList)
+            foreach (var goldmine in _goldmineList)
             {
-                if (_goldmine.IsActivated == false)
+                if (goldmine.IsActivated == false)
                 {
-                    var distance = Vector3.Distance(_radar.position, _goldmine.transform.position);
+                    var distance = Vector3.Distance(_radar.position, goldmine.transform.position);
 
                     if (distance <= _radarMaxDistance)
-                        _radarUI.DisplayTargetDirection(distance, _goldmine.transform);
+                        _radarUI.DisplayTargetDirection(distance, goldmine.transform);
                 }
             }
         }
@@ -42,13 +42,13 @@ public class Radar : MonoBehaviour
             if (goldmine.IsActivated == false)
                 _goldmineList.Add(goldmine);
 
-        if(other.TryGetComponent(out Treasure treasure))
+        if (other.TryGetComponent(out Treasure treasure))
             _currentTreasure = treasure;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
+        if (other.gameObject.TryGetComponent<Goldmine>(out Goldmine goldmine))
             if (_goldmineList.Contains(goldmine) == true)
                 _goldmineList.Remove(goldmine);
 

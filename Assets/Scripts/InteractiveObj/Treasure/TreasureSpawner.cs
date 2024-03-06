@@ -45,7 +45,7 @@ public class TreasureSpawner : MonoBehaviour
 
                 if (_isSpawned == false && _spawnWithDelay == null)
                     _spawnWithDelay = StartCoroutine(SpawnWithDelay(player.transform));
-            } 
+            }
             else if (_activatedGoldmines != _goldmines.Length)
             {
                 _treasureAlertUI.SetActive(false);
@@ -72,7 +72,7 @@ public class TreasureSpawner : MonoBehaviour
         _spawnedTreasure.transform.LookAt(player);
         _spawnedTreasure.PickedUp += OnTreasurePickUp;
         _isSpawned = true;
-        _spawnWithDelay = null; 
+        _spawnWithDelay = null;
     }
 
     private void OnTreasurePickUp(Treasure treasure)

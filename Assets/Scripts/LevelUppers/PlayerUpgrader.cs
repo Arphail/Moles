@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(GoldFarmer))]
 public class PlayerUpgrader : MonoBehaviour, IUpgradable
 {
-    [SerializeField] private DataSaver _saver;  
+    [SerializeField] private DataSaver _saver;
     [SerializeField] private LevelUpUI _ui;
     [SerializeField] private MoneyStash _base;
     [SerializeField] private int _speedMaxLevel;
@@ -73,7 +73,6 @@ public class PlayerUpgrader : MonoBehaviour, IUpgradable
             _base.SpendGold(_delayUpgradeCost);
             UpgradeFarmDelay();
             _saver.SaveLevel(Constants.PlayerLevel, Constants.Delay, _currentDelayLevel);
-
         }
     }
 

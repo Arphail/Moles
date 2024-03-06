@@ -6,7 +6,7 @@ public class LevelUpZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<Player> (out Player player))
+        if (other.TryGetComponent<Player>(out Player player))
             _ui.gameObject.SetActive(true);
     }
 

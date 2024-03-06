@@ -1,7 +1,7 @@
+using Agava.YandexGames;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Agava.YandexGames;
 
 public class GoldmineUpgradeUi : MonoBehaviour
 {
@@ -25,6 +25,6 @@ public class GoldmineUpgradeUi : MonoBehaviour
         _levelUpCost.text = currentCost.ToString();
 
         if (currentLevel == maxLevel)
-            _levelUpCost.text = "";
+            _levelUpCost.text = string.Empty;
     }
 }
