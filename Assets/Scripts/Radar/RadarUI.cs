@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class RadarUI : MonoBehaviour
+namespace Radar
 {
-    [SerializeField] private RadarQuarter _quarterUp;
-
-    public void ShowDistanceToTarget(float distance, Transform target)
+    public class RadarUI : MonoBehaviour
     {
-        if (target.gameObject.activeSelf == true)
-            _quarterUp.ShowDistance(distance, target);
+        [SerializeField] private RadarQuarter _quarterUp;
+
+        public void ShowDistanceToTarget(float distance, Transform target)
+        {
+            if (target.gameObject.activeSelf == true)
+                _quarterUp.ShowDistance(distance, target);
+        }
     }
 }

@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class LevelFinishUi : MonoBehaviour
+namespace LevelLogic
 {
-    public void Show() => gameObject.SetActive(true);
+    public class LevelFinishUi : MonoBehaviour
+    {
+        public void Show() => gameObject.SetActive(true);
 
-    public void Hide() => gameObject.SetActive(false);
+        public void Hide() => gameObject.SetActive(false);
+    }
 }

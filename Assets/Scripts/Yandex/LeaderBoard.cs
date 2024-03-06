@@ -1,120 +1,124 @@
 using Agava.YandexGames;
+using Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class LeaderBoard : MonoBehaviour
+namespace Yandex
 {
-    [SerializeField] private VerticalLayoutGroup _leaderBoardView;
-    [SerializeField] private LeaderBoardUnit _leaderBoardUnitTemplate;
-    [SerializeField] private LeaderBoardUnit _thePlayer;
-    [SerializeField] private int _maxLeaderboardUnits;
-    [SerializeField] private Image _blackBacking;
-
-    private CanvasGroup _canvasGroup;
-    private int _mobileMaxUnits = 5;
-    private int _desktopMaxUnits = 3;
-
-    private void Start()
+    [RequireComponent(typeof(CanvasGroup))]
+    public class LeaderBoard : MonoBehaviour
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        _canvasGroup.blocksRaycasts = false;
-        _canvasGroup.alpha = 0;
-        ClearLeaderBoard();
-    }
+        [SerializeField] private VerticalLayoutGroup _leaderBoardView;
+        [SerializeField] private LeaderBoardUnit _leaderBoardUnitTemplate;
+        [SerializeField] private LeaderBoardUnit _thePlayer;
+        [SerializeField] private int _maxLeaderboardUnits;
+        [SerializeField] private Image _blackBacking;
 
-    public void OnOpenLeaderBoardButtonClick()
-    {
-        if (PlayerAccount.IsAuthorized)
+        private CanvasGroup _canvasGroup;
+        private int _mobileMaxUnits = 5;
+        private int _desktopMaxUnits = 3;
+
+        private void Start()
         {
-            OpenLeaderBoard();
+            _canvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup.blocksRaycasts = false;
+            _canvasGroup.alpha = 0;
+            ClearLeaderBoard();
         }
-        else
-        {
-            PlayerAccount.Authorize(OpenLeaderBoard, null);
 
+        public void OnOpenLeaderBoardButtonClick()
+        {
             if (PlayerAccount.IsAuthorized)
-                PlayerAccount.RequestPersonalProfileDataPermission();
-        }
-    }
-
-    public void CloseLeaderBoard()
-    {
-        _blackBacking.gameObject.SetActive(true);
-        _canvasGroup.alpha = 0;
-        _canvasGroup.blocksRaycasts = false;
-    }
-
-    private void OpenLeaderBoard()
-    {
-        if (Device.Type.ToString() == Constants.Mobile)
-            _maxLeaderboardUnits = _mobileMaxUnits;
-        else
-            _maxLeaderboardUnits = _desktopMaxUnits;
-
-        _blackBacking.gameObject.SetActive(true);
-        _canvasGroup.alpha = 1;
-        _canvasGroup.blocksRaycasts = true;
-        ShowPlayer();
-        BuildLeaderBoard();
-    }
-
-    private void ShowPlayer()
-    {
-        Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) => { SetPlayer(_thePlayer, result); });
-    }
-
-    private void BuildLeaderBoard()
-    {
-        ClearLeaderBoard();
-
-        Leaderboard.GetEntries(Constants.LeaderBoardName, (result) =>
-        {
-            if (result.entries.Length >= _maxLeaderboardUnits)
             {
-                for (int i = 0; i < _maxLeaderboardUnits; i++)
-                {
-                    LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
-                    SetPlayer(tempUnit, result.entries[i]);
-                }
+                OpenLeaderBoard();
             }
             else
             {
-                foreach (var entry in result.entries)
-                {
-                    LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
-                    SetPlayer(tempUnit, entry);
-                }
+                PlayerAccount.Authorize(OpenLeaderBoard, null);
+
+                if (PlayerAccount.IsAuthorized)
+                    PlayerAccount.RequestPersonalProfileDataPermission();
             }
-        });
-    }
-
-    private void ClearLeaderBoard()
-    {
-        if (_leaderBoardView.transform.childCount > 0)
-            for (var i = _leaderBoardView.transform.childCount - 1; i >= 0; i--)
-                Object.Destroy(_leaderBoardView.transform.GetChild(i).gameObject);
-    }
-
-    private void SetPlayer(LeaderBoardUnit tempUnit, LeaderboardEntryResponse entry)
-    {
-        if (string.IsNullOrEmpty(entry.player.publicName) == false)
-        {
-            tempUnit.SetProfileImage(entry.player.profilePicture);
-            tempUnit.SetValues(tempUnit.Avatar, entry.rank, entry.player.publicName, entry.score);
         }
-        else
+
+        public void CloseLeaderBoard()
         {
-            tempUnit.SetDefaultProfilePicture();
+            _blackBacking.gameObject.SetActive(true);
+            _canvasGroup.alpha = 0;
+            _canvasGroup.blocksRaycasts = false;
+        }
 
-            if (YandexGamesSdk.Environment.i18n.lang == "en")
-                tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousEnglish, entry.score);
+        private void OpenLeaderBoard()
+        {
+            if (Device.Type.ToString() == Constants.Mobile)
+                _maxLeaderboardUnits = _mobileMaxUnits;
+            else
+                _maxLeaderboardUnits = _desktopMaxUnits;
 
-            if (YandexGamesSdk.Environment.i18n.lang == "ru")
-                tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousRussian, entry.score);
+            _blackBacking.gameObject.SetActive(true);
+            _canvasGroup.alpha = 1;
+            _canvasGroup.blocksRaycasts = true;
+            ShowPlayer();
+            BuildLeaderBoard();
+        }
 
-            if (YandexGamesSdk.Environment.i18n.lang == "tr")
-                tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousTurkish, entry.score);
+        private void ShowPlayer()
+        {
+            Leaderboard.GetPlayerEntry(Constants.LeaderBoardName, (result) => { SetPlayer(_thePlayer, result); });
+        }
+
+        private void BuildLeaderBoard()
+        {
+            ClearLeaderBoard();
+
+            Leaderboard.GetEntries(Constants.LeaderBoardName, (result) =>
+            {
+                if (result.entries.Length >= _maxLeaderboardUnits)
+                {
+                    for (int i = 0; i < _maxLeaderboardUnits; i++)
+                    {
+                        LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
+                        SetPlayer(tempUnit, result.entries[i]);
+                    }
+                }
+                else
+                {
+                    foreach (var entry in result.entries)
+                    {
+                        LeaderBoardUnit tempUnit = Instantiate(_leaderBoardUnitTemplate, _leaderBoardView.transform);
+                        SetPlayer(tempUnit, entry);
+                    }
+                }
+            });
+        }
+
+        private void ClearLeaderBoard()
+        {
+            if (_leaderBoardView.transform.childCount > 0)
+                for (var i = _leaderBoardView.transform.childCount - 1; i >= 0; i--)
+                    Object.Destroy(_leaderBoardView.transform.GetChild(i).gameObject);
+        }
+
+        private void SetPlayer(LeaderBoardUnit tempUnit, LeaderboardEntryResponse entry)
+        {
+            if (string.IsNullOrEmpty(entry.player.publicName) == false)
+            {
+                tempUnit.SetProfileImage(entry.player.profilePicture);
+                tempUnit.SetValues(tempUnit.Avatar, entry.rank, entry.player.publicName, entry.score);
+            }
+            else
+            {
+                tempUnit.SetDefaultProfilePicture();
+
+                if (YandexGamesSdk.Environment.i18n.lang == "en")
+                    tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousEnglish, entry.score);
+
+                if (YandexGamesSdk.Environment.i18n.lang == "ru")
+                    tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousRussian, entry.score);
+
+                if (YandexGamesSdk.Environment.i18n.lang == "tr")
+                    tempUnit.SetValues(tempUnit.Avatar, entry.rank, Constants.AnonymousTurkish, entry.score);
+            }
         }
     }
 }

@@ -1,20 +1,24 @@
 using Agava.YandexGames;
+using Data;
 using Lean.Localization;
 using UnityEngine;
 
-public class AutoLocalization : MonoBehaviour
+namespace Yandex
 {
-    [SerializeField] private LeanLocalization _localization;
-
-    private void Start()
+    public class AutoLocalization : MonoBehaviour
     {
-        if (YandexGamesSdk.Environment.i18n.lang == "en")
-            _localization.SetCurrentLanguage(Constants.English);
+        [SerializeField] private LeanLocalization _localization;
 
-        if (YandexGamesSdk.Environment.i18n.lang == "ru")
-            _localization.SetCurrentLanguage(Constants.Russian);
+        private void Start()
+        {
+            if (YandexGamesSdk.Environment.i18n.lang == "en")
+                _localization.SetCurrentLanguage(Constants.English);
 
-        if (YandexGamesSdk.Environment.i18n.lang == "tr")
-            _localization.SetCurrentLanguage(Constants.Turkish);
+            if (YandexGamesSdk.Environment.i18n.lang == "ru")
+                _localization.SetCurrentLanguage(Constants.Russian);
+
+            if (YandexGamesSdk.Environment.i18n.lang == "tr")
+                _localization.SetCurrentLanguage(Constants.Turkish);
+        }
     }
 }

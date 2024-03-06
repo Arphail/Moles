@@ -3,28 +3,31 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoldmineUpgradeUi : MonoBehaviour
+namespace LevelUppers
 {
-    [SerializeField] private TMP_Text _currentLevelVisual;
-    [SerializeField] private TMP_Text _levelUpCost;
-    [SerializeField] private Button _upgradeButton;
-
-    public Button Button => _upgradeButton;
-
-    public void ShowStats(int currentLevel, int maxLevel, int currentCost)
+    public class GoldmineUpgradeUi : MonoBehaviour
     {
-        if (YandexGamesSdk.Environment.i18n.lang == "en")
-            _currentLevelVisual.text = $"Level\n{currentLevel} / {maxLevel}";
+        [SerializeField] private TMP_Text _currentLevelVisual;
+        [SerializeField] private TMP_Text _levelUpCost;
+        [SerializeField] private Button _upgradeButton;
 
-        if (YandexGamesSdk.Environment.i18n.lang == "ru")
-            _currentLevelVisual.text = $"Óðîâåíü\n{currentLevel} / {maxLevel}";
+        public Button Button => _upgradeButton;
 
-        if (YandexGamesSdk.Environment.i18n.lang == "tr")
-            _currentLevelVisual.text = $"Seviye\n{currentLevel} / {maxLevel}";
+        public void ShowStats(int currentLevel, int maxLevel, int currentCost)
+        {
+            if (YandexGamesSdk.Environment.i18n.lang == "en")
+                _currentLevelVisual.text = $"Level\n{currentLevel} / {maxLevel}";
 
-        _levelUpCost.text = currentCost.ToString();
+            if (YandexGamesSdk.Environment.i18n.lang == "ru")
+                _currentLevelVisual.text = $"Ð£Ñ€Ð¾Ð²ÐµÐ½ÑŒ\n{currentLevel} / {maxLevel}";
 
-        if (currentLevel == maxLevel)
-            _levelUpCost.text = string.Empty;
+            if (YandexGamesSdk.Environment.i18n.lang == "tr")
+                _currentLevelVisual.text = $"Seviye\n{currentLevel} / {maxLevel}";
+
+            _levelUpCost.text = currentCost.ToString();
+
+            if (currentLevel == maxLevel)
+                _levelUpCost.text = string.Empty;
+        }
     }
 }

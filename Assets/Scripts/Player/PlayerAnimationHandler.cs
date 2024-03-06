@@ -1,12 +1,16 @@
+using Data;
 using UnityEngine;
 
-public class PlayerAnimationHandler : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private Animator _animator;
-    [SerializeField] private PlayerMovement _controller;
-
-    private void Update()
+    public class PlayerAnimationHandler : MonoBehaviour
     {
-        _animator.SetBool(Constants.IsWalkingTrigger, _controller.IsMoving);
+        [SerializeField] private Animator _animator;
+        [SerializeField] private PlayerMovement _controller;
+
+        private void Update()
+        {
+            _animator.SetBool(Constants.IsWalkingTrigger, _controller.IsMoving);
+        }
     }
 }

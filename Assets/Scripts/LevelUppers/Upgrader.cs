@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class Upgrader : MonoBehaviour
+namespace LevelUppers
 {
+    public class Upgrader : MonoBehaviour
+    {
+    }
 }

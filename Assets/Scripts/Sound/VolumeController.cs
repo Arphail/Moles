@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class VolumeController : MonoBehaviour
+namespace Sound
 {
-    private bool _isMuted;
-
-    public void ChangeVolume()
+    public class VolumeController : MonoBehaviour
     {
-        if (_isMuted)
+        private bool _isMuted;
+
+        public void ChangeVolume()
         {
-            AudioListener.volume = 1;
-            _isMuted = false;
-        }
-        else
-        {
-            AudioListener.volume = 0;
-            _isMuted = true;
+            if (_isMuted)
+            {
+                AudioListener.volume = 1;
+                _isMuted = false;
+            }
+            else
+            {
+                AudioListener.volume = 0;
+                _isMuted = true;
+            }
         }
     }
 }

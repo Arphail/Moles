@@ -1,12 +1,16 @@
+using Data;
 using UnityEngine;
 
-public class MinionAnimationHandler : MonoBehaviour
+namespace Minions
 {
-    [SerializeField] private Minion _minion;
-    [SerializeField] private Animator _animator;
-
-    private void Update()
+    public class MinionAnimationHandler : MonoBehaviour
     {
-        _animator.SetBool(Constants.IsWalkingTrigger, _minion.IsStopped == false);
+        [SerializeField] private Minion _minion;
+        [SerializeField] private Animator _animator;
+
+        private void Update()
+        {
+            _animator.SetBool(Constants.IsWalkingTrigger, _minion.IsStopped == false);
+        }
     }
 }

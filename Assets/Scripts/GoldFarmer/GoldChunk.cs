@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class GoldChunk : MonoBehaviour
+namespace GoldFarmer
 {
+    public class GoldChunk : MonoBehaviour
+    {
+    }
 }

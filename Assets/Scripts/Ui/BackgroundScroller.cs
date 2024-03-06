@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackgroundScroller : MonoBehaviour
+namespace Ui
 {
-    [SerializeField] private RawImage _image;
-    [SerializeField] private float _xRect;
-    [SerializeField] private float _yRect;
-
-    private void Update()
+    public class BackgroundScroller : MonoBehaviour
     {
-        _image.uvRect = new Rect(_image.uvRect.position + new Vector2(_xRect, _yRect) * Time.deltaTime, _image.uvRect.size);
+        [SerializeField] private RawImage _image;
+        [SerializeField] private float _xRect;
+        [SerializeField] private float _yRect;
+
+        private void Update()
+        {
+            _image.uvRect = new Rect(_image.uvRect.position + new Vector2(_xRect, _yRect) * Time.deltaTime, _image.uvRect.size);
+        }
     }
 }

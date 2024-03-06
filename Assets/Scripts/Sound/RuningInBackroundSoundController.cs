@@ -1,26 +1,30 @@
 using Agava.WebUtility;
 using UnityEngine;
+using Yandex;
 
-public class RuningInBackroundSoundController : MonoBehaviour
+namespace Sound
 {
-    [SerializeField] private AdHandler _adHandler;
-
-    private void OnEnable()
+    public class RuningInBackroundSoundController : MonoBehaviour
     {
-        WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
-    }
+        [SerializeField] private AdHandler _adHandler;
 
-    private void OnDisable()
-    {
-        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
-    }
-
-    private void OnInBackgroundChange(bool inBackground)
-    {
-        if (_adHandler.AdIsRunning == false)
+        private void OnEnable()
         {
-            AudioListener.pause = inBackground;
-            AudioListener.volume = inBackground ? 0f : 1f;
+            WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
+        }
+
+        private void OnDisable()
+        {
+            WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
+        }
+
+        private void OnInBackgroundChange(bool inBackground)
+        {
+            if (_adHandler.AdIsRunning == false)
+            {
+                AudioListener.pause = inBackground;
+                AudioListener.volume = inBackground ? 0f : 1f;
+            }
         }
     }
 }

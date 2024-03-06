@@ -1,37 +1,41 @@
+using Data;
 using TMPro;
 using UnityEngine;
 
-public class MoneyStash : MonoBehaviour
+namespace Base
 {
-    [SerializeField] private TMP_Text _goldVisualisation;
-    [SerializeField] private DataSaver _saver;
-    [SerializeField] private float _money;
-
-    public float Money => _money;
-
-    private void Update()
+    public class MoneyStash : MonoBehaviour
     {
-        _goldVisualisation.text = _money.ToString();
-    }
+        [SerializeField] private TMP_Text _goldVisualisation;
+        [SerializeField] private DataSaver _saver;
+        [SerializeField] private float _money;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out GoldFarmer farmer))
+        public float Money => _money;
+
+        private void Update()
         {
-            AddGold(farmer.CurrentGold);
-            farmer.EmptyBag();
+            _goldVisualisation.text = _money.ToString();
         }
-    }
 
-    public void AddGold(float goldAmount)
-    {
-        _money += goldAmount;
-        _saver.SaveMoney(_money);
-    }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out GoldFarmer.GoldFarmer farmer))
+            {
+                AddGold(farmer.CurrentGold);
+                farmer.EmptyBag();
+            }
+        }
 
-    public void SpendGold(float goldAmound)
-    {
-        _money -= goldAmound;
-        _saver.SaveMoney(_money);
+        public void AddGold(float goldAmount)
+        {
+            _money += goldAmount;
+            _saver.SaveMoney(_money);
+        }
+
+        public void SpendGold(float goldAmound)
+        {
+            _money -= goldAmound;
+            _saver.SaveMoney(_money);
+        }
     }
 }

@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class LevelUpZone : MonoBehaviour
+namespace LevelUppers
 {
-    [SerializeField] private LevelUpUI _ui;
-
-    private void OnTriggerEnter(Collider other)
+    public class LevelUpZone : MonoBehaviour
     {
-        if (other.TryGetComponent<Player>(out Player player))
-            _ui.gameObject.SetActive(true);
-    }
+        [SerializeField] private LevelUpUI _ui;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent<Player>(out Player player))
-            _ui.gameObject.SetActive(false);
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<Player.Player>(out Player.Player player))
+                _ui.gameObject.SetActive(true);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<Player.Player>(out Player.Player player))
+                _ui.gameObject.SetActive(false);
+        }
     }
 }

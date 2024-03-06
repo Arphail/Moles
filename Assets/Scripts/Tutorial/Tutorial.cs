@@ -1,75 +1,79 @@
 using System.Collections.Generic;
 using Agava.YandexGames;
+using Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tutorial : MonoBehaviour
+namespace Tutorial
 {
-    [SerializeField] private List<Image> _tutorialPages;
-    [SerializeField] private Button _nextPage;
-    [SerializeField] private Button _previousPage;
-    [SerializeField] private TMP_Text _currentPageVisual;
-    [SerializeField] private Image _mobileControlsPage;
-    [SerializeField] private Image _desktopControlsPage;
-
-    private Image _currentPage;
-    private int _currentPageIndex;
-
-    private void Start()
+    public class Tutorial : MonoBehaviour
     {
-        if (Device.Type.ToString() == Constants.Desktop)
-            _tutorialPages[0] = _desktopControlsPage;
-        else
-            _tutorialPages[0] = _mobileControlsPage;
+        [SerializeField] private List<Image> _tutorialPages;
+        [SerializeField] private Button _nextPage;
+        [SerializeField] private Button _previousPage;
+        [SerializeField] private TMP_Text _currentPageVisual;
+        [SerializeField] private Image _mobileControlsPage;
+        [SerializeField] private Image _desktopControlsPage;
 
-        _currentPage = _tutorialPages[0];
-        _currentPageIndex = 0;
-        _currentPage.gameObject.SetActive(true);
-    }
+        private Image _currentPage;
+        private int _currentPageIndex;
 
-    private void Update()
-    {
-        if (_currentPage != _tutorialPages[0] && _currentPage != _tutorialPages[_tutorialPages.Count - 1])
+        private void Start()
         {
-            _nextPage.gameObject.SetActive(true);
-            _previousPage.gameObject.SetActive(true);
+            if (Device.Type.ToString() == Constants.Desktop)
+                _tutorialPages[0] = _desktopControlsPage;
+            else
+                _tutorialPages[0] = _mobileControlsPage;
+
+            _currentPage = _tutorialPages[0];
+            _currentPageIndex = 0;
+            _currentPage.gameObject.SetActive(true);
         }
 
-        if (_currentPage == _tutorialPages[0])
-            _previousPage.gameObject.SetActive(false);
-
-        if (_currentPage == _tutorialPages[_tutorialPages.Count - 1])
-            _nextPage.gameObject.SetActive(false);
-
-        int nextPageIndex = _currentPageIndex + 1;
-        _currentPageVisual.text = $"{nextPageIndex} / {_tutorialPages.Count}";
-    }
-
-    public void NextPage()
-    {
-        for (int i = 0; i < _tutorialPages.Count; i++)
+        private void Update()
         {
-            if (_currentPage == _tutorialPages[i])
+            if (_currentPage != _tutorialPages[0] && _currentPage != _tutorialPages[_tutorialPages.Count - 1])
             {
-                _currentPage.gameObject.SetActive(false);
-                _tutorialPages[++i].gameObject.SetActive(true);
-                _currentPage = _tutorialPages[i];
-                _currentPageIndex = i;
+                _nextPage.gameObject.SetActive(true);
+                _previousPage.gameObject.SetActive(true);
+            }
+
+            if (_currentPage == _tutorialPages[0])
+                _previousPage.gameObject.SetActive(false);
+
+            if (_currentPage == _tutorialPages[_tutorialPages.Count - 1])
+                _nextPage.gameObject.SetActive(false);
+
+            int nextPageIndex = _currentPageIndex + 1;
+            _currentPageVisual.text = $"{nextPageIndex} / {_tutorialPages.Count}";
+        }
+
+        public void NextPage()
+        {
+            for (int i = 0; i < _tutorialPages.Count; i++)
+            {
+                if (_currentPage == _tutorialPages[i])
+                {
+                    _currentPage.gameObject.SetActive(false);
+                    _tutorialPages[++i].gameObject.SetActive(true);
+                    _currentPage = _tutorialPages[i];
+                    _currentPageIndex = i;
+                }
             }
         }
-    }
 
-    public void PreviousPage()
-    {
-        for (int i = 0; i < _tutorialPages.Count; i++)
+        public void PreviousPage()
         {
-            if (_currentPage == _tutorialPages[i])
+            for (int i = 0; i < _tutorialPages.Count; i++)
             {
-                _currentPage.gameObject.SetActive(false);
-                _tutorialPages[--i].gameObject.SetActive(true);
-                _currentPage = _tutorialPages[i];
-                _currentPageIndex = i;
+                if (_currentPage == _tutorialPages[i])
+                {
+                    _currentPage.gameObject.SetActive(false);
+                    _tutorialPages[--i].gameObject.SetActive(true);
+                    _currentPage = _tutorialPages[i];
+                    _currentPageIndex = i;
+                }
             }
         }
     }

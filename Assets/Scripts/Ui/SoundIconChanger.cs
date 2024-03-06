@@ -1,25 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundIconChanger : MonoBehaviour
+namespace Ui
 {
-    [SerializeField] private Image _icon;
-    [SerializeField] private Sprite _muted;
-    [SerializeField] private Sprite _unMuted;
-
-    private bool _isMuted;
-
-    public void ChangeIcon()
+    public class SoundIconChanger : MonoBehaviour
     {
-        if (_isMuted)
+        [SerializeField] private Image _icon;
+        [SerializeField] private Sprite _muted;
+        [SerializeField] private Sprite _unMuted;
+
+        private bool _isMuted;
+
+        public void ChangeIcon()
         {
-            _icon.sprite = _unMuted;
-            _isMuted = false;
-        }
-        else
-        {
-            _icon.sprite = _muted;
-            _isMuted = true;
+            if (_isMuted)
+            {
+                _icon.sprite = _unMuted;
+                _isMuted = false;
+            }
+            else
+            {
+                _icon.sprite = _muted;
+                _isMuted = true;
+            }
         }
     }
 }

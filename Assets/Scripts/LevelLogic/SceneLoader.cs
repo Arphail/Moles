@@ -1,8 +1,12 @@
+using Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+namespace LevelLogic
 {
-    public void LoadLevel()
-        => SceneManager.LoadScene(Constants.ForestLevel);
+    public class SceneLoader : MonoBehaviour
+    {
+        public void LoadLevel()
+            => SceneManager.LoadScene(Constants.ForestLevel);
+    }
 }

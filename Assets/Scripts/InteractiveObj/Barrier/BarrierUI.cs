@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BarrierUI : MonoBehaviour
+namespace InteractiveObj.Barrier
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private TMP_Text _buttonText;
-
-    public void ShowButton(string buttonText)
+    public class BarrierUI : MonoBehaviour
     {
-        _buttonText.text = buttonText;
-        _button.gameObject.SetActive(true);
-    }
+        [SerializeField] private Button _button;
+        [SerializeField] private TMP_Text _buttonText;
 
-    public void HideButton() => _button.gameObject.SetActive(false);
+        public void ShowButton(string buttonText)
+        {
+            _buttonText.text = buttonText;
+            _button.gameObject.SetActive(true);
+        }
+
+        public void HideButton() => _button.gameObject.SetActive(false);
+    }
 }
