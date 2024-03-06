@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(GoldFarmer))]
-public class PlayerUpgrader : MonoBehaviour, IUpgradable
+public class PlayerUpgrader : MonoBehaviour
 {
     [SerializeField] private DataSaver _saver;
     [SerializeField] private LevelUpUI _ui;

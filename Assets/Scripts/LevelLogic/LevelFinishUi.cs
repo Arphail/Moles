@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelFinishUi : MonoBehaviour
 {
-    public void ShowUI() => gameObject.SetActive(true);
+    public void Show() => gameObject.SetActive(true);
 
-    public void HideUI() => gameObject.SetActive(false);
+    public void Hide() => gameObject.SetActive(false);
 }

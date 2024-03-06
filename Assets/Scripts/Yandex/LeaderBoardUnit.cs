@@ -23,9 +23,11 @@ public class LeaderBoardUnit : MonoBehaviour
         _score.text = score.ToString();
     }
 
-    public void SetProfileImage(string imageUrl) => StartCoroutine(SetProfileImageCoroutine(imageUrl));
+    public void SetProfileImage(string imageUrl) 
+        => StartCoroutine(SetProfileImageCoroutine(imageUrl));
 
-    public void SetDefaultProfilePicture() => _avatar.sprite = SetRandomProfileImage();
+    public void SetDefaultProfilePicture() 
+        => _avatar.sprite = SetRandomProfileImage();
 
     private Sprite SetRandomProfileImage()
     {
@@ -46,7 +48,7 @@ public class LeaderBoardUnit : MonoBehaviour
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
         yield return request.SendWebRequest();
 
-        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+        if (request.result is UnityWebRequest.Result.ConnectionError or UnityWebRequest.Result.ProtocolError)
         {
             Debug.Log($"[download image error] {request.error}");
         }

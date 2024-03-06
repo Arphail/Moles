@@ -9,14 +9,11 @@ public class LeaderBoard : MonoBehaviour
     [SerializeField] private LeaderBoardUnit _leaderBoardUnitTemplate;
     [SerializeField] private LeaderBoardUnit _thePlayer;
     [SerializeField] private int _maxLeaderboardUnits;
-    [SerializeField] private Sprite _defaultProfilePicture;
     [SerializeField] private Image _blackBacking;
 
     private CanvasGroup _canvasGroup;
     private int _mobileMaxUnits = 5;
     private int _desktopMaxUnits = 3;
-
-    public LeaderBoardUnit ThePlayer => _thePlayer;
 
     private void Start()
     {
@@ -50,7 +47,7 @@ public class LeaderBoard : MonoBehaviour
 
     private void OpenLeaderBoard()
     {
-        if (Device.Type.ToString() == "Mobile")
+        if (Device.Type.ToString() == Constants.Mobile)
             _maxLeaderboardUnits = _mobileMaxUnits;
         else
             _maxLeaderboardUnits = _desktopMaxUnits;

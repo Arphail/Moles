@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _mobileInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
-        _desktopInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        _desktopInput = new Vector3(Input.GetAxis(Constants.Horizontal), 0, Input.GetAxis(Constants.Vertical));
 
         if (_playerVelocity.y < 0)
             _playerVelocity.y = 0;

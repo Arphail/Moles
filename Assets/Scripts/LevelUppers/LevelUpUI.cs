@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -19,13 +20,13 @@ public class LevelUpUI : MonoBehaviour
         _currentDelayLevelVisual.text = $"{currentDelayLevel} / {maxDelayLevel}";
         _currentDelayUpgradeCost.text = delayCost.ToString();
 
-        if (currentSpeedLevel == maxSpeedLevel)
+        if (Math.Abs(currentSpeedLevel - maxSpeedLevel) < float.Epsilon)
             _currentSpeedUpgradeCost.text = string.Empty;
 
-        if (currentCapacityLevel == maxCapacityLevel)
+        if (Math.Abs(currentCapacityLevel - maxCapacityLevel) < float.Epsilon)
             _currentCapacityUpgradeCost.text = string.Empty;
 
-        if (currentDelayLevel == maxDelayLevel)
+        if (Math.Abs(currentDelayLevel - maxDelayLevel) < float.Epsilon)
             _currentDelayUpgradeCost.text = string.Empty;
     }
 }

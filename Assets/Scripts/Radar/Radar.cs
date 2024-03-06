@@ -22,7 +22,7 @@ public class Radar : MonoBehaviour
                     var distance = Vector3.Distance(_radar.position, goldmine.transform.position);
 
                     if (distance <= _radarMaxDistance)
-                        _radarUI.DisplayTargetDirection(distance, goldmine.transform);
+                        _radarUI.ShowDistanceToTarget(distance, goldmine.transform);
                 }
             }
         }
@@ -32,7 +32,7 @@ public class Radar : MonoBehaviour
             var distance = Vector3.Distance(_radar.position, _currentTreasure.transform.position);
 
             if (distance <= _radarMaxDistance)
-                _radarUI.DisplayTargetDirection(distance, _currentTreasure.transform);
+                _radarUI.ShowDistanceToTarget(distance, _currentTreasure.transform);
         }
     }
 

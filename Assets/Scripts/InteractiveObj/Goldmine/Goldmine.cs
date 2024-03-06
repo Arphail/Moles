@@ -9,14 +9,14 @@ public class Goldmine : MonoBehaviour
     [SerializeField] private GoldmineUpgradeUi _ui;
     [SerializeField] private ParticleSystem _particleSystem;
     [SerializeField] private GoldmineModelChanger _animationHandler;
-    [SerializeField] private GameObject _level0Model;
+    [SerializeField] private GameObject _defaultModel;
     [SerializeField] private AudioSource _appearSound;
     [SerializeField] private AudioSource _upgradeSound;
     [SerializeField] private DataSaver _saver;
     [SerializeField] private int _serialNumber;
 
     private GoldmineUpgrader _upgrader;
-    private int LevelCounter = 0;
+    private int _levelCounter = 0;
 
     public event Action<Goldmine> Activated;
 
@@ -29,7 +29,7 @@ public class Goldmine : MonoBehaviour
     private void Awake()
     {
         _upgrader = GetComponent<GoldmineUpgrader>();
-        _level0Model.SetActive(false);
+        _defaultModel.SetActive(false);
         _particleSystem.Stop();
     }
 
@@ -75,29 +75,29 @@ public class Goldmine : MonoBehaviour
         {
             _moneyStash.SpendGold(_upgrader.CurrentLevelCost);
             _upgradeSound.Play();
-            _animationHandler.ChangeModel();
+            _animationHandler.ChangeToNextModel();
             _upgrader.UpgradeGoldmineMinionLimit();
             Upgraded?.Invoke(this);
-            LevelCounter++;
+            _levelCounter++;
 
-            if (LevelCounter > PlayerPrefs.GetInt(_saver.GoldmineLevels[SerialNumber].ToString()))
-                _saver.SaveGoldmineLevel(SerialNumber, LevelCounter);
+            if (_levelCounter > PlayerPrefs.GetInt(_saver.GoldmineLevels[SerialNumber].ToString()))
+                _saver.SaveGoldmineLevel(SerialNumber, _levelCounter);
         }
     }
 
     public void CatchLevels()
     {
-        _animationHandler.ChangeModel();
+        _animationHandler.ChangeToNextModel();
         _upgrader.UpgradeGoldmineMinionLimit();
         Upgraded?.Invoke(this);
-        LevelCounter++;
+        _levelCounter++;
     }
 
     public void ActivateGoldmine()
     {
         _saver.SaveGoldmine(SerialNumber);
         _appearSound.Play();
-        _level0Model.SetActive(true);
+        _defaultModel.SetActive(true);
         _particleSystem.Play();
         Activated?.Invoke(this);
         IsActivated = true;

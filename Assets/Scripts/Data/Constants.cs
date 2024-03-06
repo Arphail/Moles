@@ -18,4 +18,11 @@ public static class Constants
     public const string FirstTimePlaying = "FirstTimePlaying";
     public const string AnimationTrigger = "Open";
     public const string IsWalkingTrigger = "IsWalking";
+    public const string ForestLevel = "ForestLevel";
+    public const string Vertical = "Vertical";
+    public const string Horizontal = "Horizontal";
+    public const string Desktop = "Desktop";
+    public const string Mobile = "Mobile";
+    public const int PrefsTrue = 1;
+    public const int PrefsFalse = 0;
 }

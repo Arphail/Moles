@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Treasure : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class Treasure : MonoBehaviour
     private WaitForSeconds _delay;
     private Coroutine _openChestWithDelay;
 
-    public event UnityAction<Treasure> PickedUp;
+    public event Action<Treasure> PickedUp;
 
     private void OnEnable()
     {

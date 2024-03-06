@@ -39806,7 +39806,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.4830252, y: 0.000000028041015, z: -0.000000015468727, w: 0.8756065}
+  m_LocalRotation: {x: 0.48302525, y: -0.000000010263727, z: 0.0000000056619465, w: 0.8756065}
   m_LocalPosition: {x: 50.31, y: 21.18, z: 10.629997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56576,7 +56576,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 92.9
+  m_fontSize: 92.95
   m_fontSizeBase: 89.3
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -72699,7 +72699,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828107102}
-  - component: {fileID: 1828107104}
   - component: {fileID: 1828107103}
   m_Layer: 0
   m_Name: BackGroundMusic
@@ -72734,10 +72733,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a39316463de8a9a40994bd4125b20c22, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.508
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -72819,19 +72818,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1828107104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828107101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f551e301baa7342408e25738f98bfc14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _source: {fileID: 1828107103}
 --- !u!1 &1829208781
 GameObject:
   m_ObjectHideFlags: 0
@@ -82327,7 +82313,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120229152}
-  m_LocalRotation: {x: 0.4830252, y: 0.000000028041015, z: -0.000000015468727, w: 0.8756065}
+  m_LocalRotation: {x: 0.48302525, y: -0.000000010263727, z: 0.0000000056619465, w: 0.8756065}
   m_LocalPosition: {x: 50.31, y: 21.18, z: 10.629997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

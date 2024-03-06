@@ -10,8 +10,6 @@ public class Minion : MonoBehaviour
     private Vector3 _basePosition;
     private Vector3 _goldminePosition;
 
-    public Vector3 GoldminePosition => _goldminePosition;
-
     public bool IsStopped => _agent.isStopped;
 
     private void Update()

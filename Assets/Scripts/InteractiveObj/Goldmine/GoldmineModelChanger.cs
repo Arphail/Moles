@@ -12,8 +12,11 @@ public class GoldmineModelChanger : MonoBehaviour
         _currentModel = _models[0];
     }
 
-    public void ChangeModel()
+    public void ChangeToNextModel()
     {
+        if (_currentModel == _models[_models.Length - 1])
+            return;
+
         _currentModel.SetActive(false);
 
         for (int i = 0; i < _models.Length; i++)

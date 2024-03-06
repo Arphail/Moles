@@ -18,7 +18,7 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        if (Device.Type.ToString() == "Desktop")
+        if (Device.Type.ToString() == Constants.Desktop)
             _tutorialPages[0] = _desktopControlsPage;
         else
             _tutorialPages[0] = _mobileControlsPage;
@@ -42,7 +42,8 @@ public class Tutorial : MonoBehaviour
         if (_currentPage == _tutorialPages[_tutorialPages.Count - 1])
             _nextPage.gameObject.SetActive(false);
 
-        _currentPageVisual.text = $"{_currentPageIndex + 1} / {_tutorialPages.Count}";
+        int nextPageIndex = _currentPageIndex + 1;
+        _currentPageVisual.text = $"{nextPageIndex} / {_tutorialPages.Count}";
     }
 
     public void NextPage()

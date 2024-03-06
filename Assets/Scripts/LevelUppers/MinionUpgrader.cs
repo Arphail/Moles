@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MinionUpgrader : MonoBehaviour, IUpgradable
+public class MinionUpgrader : MonoBehaviour
 {
     [SerializeField] private DataSaver _saver;
     [SerializeField] private Minion[] _minions;

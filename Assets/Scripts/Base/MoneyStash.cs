@@ -14,6 +14,15 @@ public class MoneyStash : MonoBehaviour
         _goldVisualisation.text = _money.ToString();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out GoldFarmer farmer))
+        {
+            AddGold(farmer.CurrentGold);
+            farmer.EmptyBag();
+        }
+    }
+
     public void AddGold(float goldAmount)
     {
         _money += goldAmount;
@@ -24,14 +33,5 @@ public class MoneyStash : MonoBehaviour
     {
         _money -= goldAmound;
         _saver.SaveMoney(_money);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out GoldFarmer farmer))
-        {
-            AddGold(farmer.CurrentGold);
-            farmer.EmptyBag();
-        }
     }
 }

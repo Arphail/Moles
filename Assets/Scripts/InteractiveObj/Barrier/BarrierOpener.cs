@@ -6,16 +6,16 @@ public class BarrierOpener : MonoBehaviour
 {
     [SerializeField] private MoneyStash _base;
     [SerializeField] private BarrierUI _ui;
-    [SerializeField] private AudioSource _soundHandler;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private DataSaver _saver;
 
     private Barrier _currentBarrier;
 
-    public void TryOpenBarrier()
+    public void OnBarrierOpenButtonClick()
     {
         if (_currentBarrier != null && _currentBarrier.Cost <= _base.Money)
         {
-            _soundHandler.Play();
+            _audioSource.Play();
             _currentBarrier.Open();
             _saver.SaveBarrier(_currentBarrier.SerialNumber);
             _base.SpendGold(_currentBarrier.Cost);

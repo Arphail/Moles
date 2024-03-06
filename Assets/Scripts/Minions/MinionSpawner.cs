@@ -18,19 +18,19 @@ public class MinionSpawner : MonoBehaviour
     private void OnEnable()
     {
         foreach (var goldmine in _goldmines)
+        {
             goldmine.Activated += OnGoldMineActivated;
-
-        foreach (var goldmine in _goldmines)
             goldmine.Upgraded += OnGoldMineUpgraded;
+        }
     }
 
     private void OnDisable()
     {
         foreach (var goldmine in _goldmines)
+        {
             goldmine.Activated -= OnGoldMineActivated;
-
-        foreach (var goldmine in _goldmines)
             goldmine.Upgraded -= OnGoldMineUpgraded;
+        }
     }
 
     public void SpawnMinion(Goldmine goldmine)

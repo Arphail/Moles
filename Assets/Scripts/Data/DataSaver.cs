@@ -3,25 +3,30 @@ using UnityEngine;
 
 public class DataSaver : MonoBehaviour
 {
-    public readonly List<int> BarrierNumbers = new List<int>();
-    public readonly List<int> GoldmineNumbers = new List<int>();
+    public readonly List<int> BarrierIds = new List<int>();
+    public readonly List<int> GoldmineIds = new List<int>();
     public readonly List<int> GoldmineLevels = new List<int>();
 
-    public void SetBarrier(int number) => BarrierNumbers.Add(number);
+    public void SetBarrier(int id) 
+        => BarrierIds.Add(id);
 
-    public void SaveBarrier(int barrierNumber) => PlayerPrefs.SetInt(Constants.Barrier + BarrierNumbers[barrierNumber].ToString(), 1);
+    public void SaveBarrier(int barrierId) 
+        => PlayerPrefs.SetInt(Constants.Barrier + BarrierIds[barrierId].ToString(), Constants.PrefsTrue);
 
-    public void SetGoldmine(int number)
+    public void SetGoldmine(int id)
     {
-        GoldmineNumbers.Add(number);
-        GoldmineLevels.Add(number);
+        GoldmineIds.Add(id);
+        GoldmineLevels.Add(id);
     }
 
-    public void SaveGoldmine(int goldmineNumber) => PlayerPrefs.SetInt(Constants.Goldmine + GoldmineNumbers[goldmineNumber].ToString(), 1);
+    public void SaveGoldmine(int goldmineId) 
+        => PlayerPrefs.SetInt(Constants.Goldmine + GoldmineIds[goldmineId].ToString(), Constants.PrefsTrue);
 
-    public void SaveGoldmineLevel(int goldmineNumber, int level) => PlayerPrefs.SetInt(GoldmineLevels[goldmineNumber].ToString(), level);
+    public void SaveGoldmineLevel(int goldmineId, int level) 
+        => PlayerPrefs.SetInt(GoldmineLevels[goldmineId].ToString(), level);
 
-    public void SaveMoney(float money) => PlayerPrefs.SetFloat(Constants.Money, money);
+    public void SaveMoney(float money) 
+        => PlayerPrefs.SetFloat(Constants.Money, money);
 
     public void SaveLevel(string entity, string upgradeType, int level)
     {

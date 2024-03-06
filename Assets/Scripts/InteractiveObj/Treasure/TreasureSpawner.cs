@@ -30,6 +30,12 @@ public class TreasureSpawner : MonoBehaviour
             goldmine.Activated += OnGoldmineActivated;
     }
 
+    private void OnDisable()
+    {
+        foreach (var goldmine in _goldmines)
+            goldmine.Activated -= OnGoldmineActivated;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.TryGetComponent<Player>(out Player player))

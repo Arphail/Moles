@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 3876254663823504445}
   - component: {fileID: 8749133059237785961}
   - component: {fileID: 1601425732791710005}
-  - component: {fileID: 7195991568147649936}
   m_Layer: 0
   m_Name: Goldmine
   m_TagString: Untagged
@@ -237,13 +236,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b978339efe906a4798af5646ff1b2b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _base: {fileID: 0}
+  _moneyStash: {fileID: 0}
   _ui: {fileID: 0}
   _particleSystem: {fileID: 5481670888857576228}
   _animationHandler: {fileID: 1601425732791710005}
-  _level0Model: {fileID: 5543214207044692219}
-  _appearSound: {fileID: 5154940518350304062}
-  _upgradeSound: {fileID: 7195991568147649936}
+  _defaultModel: {fileID: 5543214207044692219}
+  _appearSound: {fileID: 0}
+  _upgradeSound: {fileID: 0}
+  _saver: {fileID: 0}
+  _serialNumber: 0
 --- !u!114 &8749133059237785961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,19 +282,6 @@ MonoBehaviour:
   _effects:
   - {fileID: 5441268425804525886}
   - {fileID: 5908816361769256035}
---- !u!114 &7195991568147649936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450691843339084693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0082140239030ae49aa17ea91da4b414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _source: {fileID: 1721940477015938043}
 --- !u!1 &5543214207044692219
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +324,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6745350693586673578}
   - component: {fileID: 2588028241185956782}
-  - component: {fileID: 5154940518350304062}
   m_Layer: 0
   m_Name: AppearingSoundHandler
   m_TagString: Untagged
@@ -455,19 +442,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5154940518350304062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5798443734574359251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0082140239030ae49aa17ea91da4b414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _source: {fileID: 2588028241185956782}
 --- !u!1 &6199841771978813381
 GameObject:
   m_ObjectHideFlags: 0

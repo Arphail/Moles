@@ -18,17 +18,17 @@ public class DataLoader : MonoBehaviour
         _saver = GetComponent<DataSaver>();
 
         if (PlayerPrefs.HasKey(Constants.FirstTimePlaying) == false)
-            PlayerPrefs.SetInt(Constants.FirstTimePlaying, 1);
+            PlayerPrefs.SetInt(Constants.FirstTimePlaying, Constants.PrefsTrue);
     }
 
     private void Start()
     {
         if (PlayerPrefs.HasKey(Constants.FirstTimePlaying))
         {
-            if (PlayerPrefs.GetInt(Constants.FirstTimePlaying) == 1)
+            if (PlayerPrefs.GetInt(Constants.FirstTimePlaying) == Constants.PrefsTrue)
             {
                 _tutorial.gameObject.SetActive(true);
-                PlayerPrefs.SetInt(Constants.FirstTimePlaying, 0);
+                PlayerPrefs.SetInt(Constants.FirstTimePlaying, Constants.PrefsFalse);
             }
         }
 
@@ -44,9 +44,9 @@ public class DataLoader : MonoBehaviour
         {
             _saver.SetBarrier(_barriers[i].SerialNumber);
 
-            if (PlayerPrefs.HasKey(Constants.Barrier + _saver.BarrierNumbers[i].ToString()))
+            if (PlayerPrefs.HasKey(Constants.Barrier + _saver.BarrierIds[i].ToString()))
             {
-                if (PlayerPrefs.GetInt(Constants.Barrier + _saver.BarrierNumbers[i].ToString()) == 1)
+                if (PlayerPrefs.GetInt(Constants.Barrier + _saver.BarrierIds[i].ToString()) == Constants.PrefsTrue)
                 {
                     _barriers[i].Open();
                 }
@@ -60,9 +60,9 @@ public class DataLoader : MonoBehaviour
         {
             _saver.SetGoldmine(_goldmines[i].SerialNumber);
 
-            if (PlayerPrefs.HasKey(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()))
+            if (PlayerPrefs.HasKey(Constants.Goldmine + _saver.GoldmineIds[i].ToString()))
             {
-                if (PlayerPrefs.GetInt(Constants.Goldmine + _saver.GoldmineNumbers[i].ToString()) == 1)
+                if (PlayerPrefs.GetInt(Constants.Goldmine + _saver.GoldmineIds[i].ToString()) == Constants.PrefsTrue)
                 {
                     _goldmines[i].ActivateGoldmine();
 

@@ -10,13 +10,13 @@ public class LevelFinishingZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Player>(out Player player))
-            _ui.ShowUI();
+            _ui.Show();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.TryGetComponent<Player>(out Player player))
-            _ui.HideUI();
+            _ui.Hide();
     }
 
     public void RestartLevel()

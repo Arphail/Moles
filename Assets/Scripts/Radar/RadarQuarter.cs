@@ -15,6 +15,13 @@ public class RadarQuarter : MonoBehaviour
 
     private Color _currentActiveColor;
 
+    private void FixedUpdate()
+    {
+        _longDistanceImage.color = _basicColor;
+        _midDistanceImage.color = _basicColor;
+        _shortDistanceImage.color = _basicColor;
+    }
+
     public void ShowDistance(float distance, Transform target)
     {
         if (target.TryGetComponent(out Goldmine goldmine))
@@ -49,12 +56,5 @@ public class RadarQuarter : MonoBehaviour
             _midDistanceImage.color = _basicColor;
             _shortDistanceImage.color = _basicColor;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        _longDistanceImage.color = _basicColor;
-        _midDistanceImage.color = _basicColor;
-        _shortDistanceImage.color = _basicColor;
     }
 }
