@@ -25,10 +25,10 @@ namespace Yandex
             _score.text = score.ToString();
         }
 
-        public void SetProfileImage(string imageUrl) 
+        public void SetProfileImage(string imageUrl)
             => StartCoroutine(SetProfileImageCoroutine(imageUrl));
 
-        public void SetDefaultProfilePicture() 
+        public void SetDefaultProfilePicture()
             => _avatar.sprite = SetRandomProfileImage();
 
         private Sprite SetRandomProfileImage()

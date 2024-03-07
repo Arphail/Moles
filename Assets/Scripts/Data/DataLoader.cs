@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Base;
 using InteractiveObj.Barrier;
 using InteractiveObj.Goldmine;
@@ -18,11 +20,22 @@ namespace Data
         [SerializeField] private PlayerUpgrader _playerUpgrader;
 
         private DataSaver _saver;
+        private Dictionary<string, Action> _saveStragiesByKey;
 
         private void Awake()
         {
             _saver = GetComponent<DataSaver>();
 
+            _saveStragiesByKey = new Dictionary<string, Action>()
+            {
+                [Constants.PlayerMovespeedUpgradeKey] = () => _playerUpgrader.UpgradeMoveSpeed(),
+                [Constants.PlayerCapacityUpgradeKey] = () => _playerUpgrader.UpgradeGoldCapacity(),
+                [Constants.PlayerDelayUpgradeKey] = () => _playerUpgrader.UpgradeFarmDelay(),
+                [Constants.MinionMovespeedUpgradeKey] = () => _minionUpgrader.UpgradeMoveSpeed(),
+                [Constants.MinionCapacityUpgradeKey] = () => _minionUpgrader.UpgradeGoldCapacity(),
+                [Constants.MinionDelayUpgradeKey] = () => _minionUpgrader.UpgradeFarmDelay(),
+            };
+            
             if (PlayerPrefs.HasKey(Constants.FirstTimePlaying) == false)
                 PlayerPrefs.SetInt(Constants.FirstTimePlaying, Constants.PrefsTrue);
         }
@@ -49,14 +62,12 @@ namespace Data
             for (int i = 0; i < _barriers.Count; i++)
             {
                 _saver.SetBarrier(_barriers[i].SerialNumber);
-
-                if (PlayerPrefs.HasKey(Constants.Barrier + _saver.BarrierIds[i].ToString()))
-                {
-                    if (PlayerPrefs.GetInt(Constants.Barrier + _saver.BarrierIds[i].ToString()) == Constants.PrefsTrue)
-                    {
+                string barrierPrefKey = Constants.Barrier + _saver.BarrierIds[i];
+                
+                if (PlayerPrefs.HasKey(barrierPrefKey))
+                    if (PlayerPrefs.GetInt(barrierPrefKey) == Constants.PrefsTrue)
                         _barriers[i].Open();
-                    }
-                }
+                
             }
         }
 
@@ -65,17 +76,16 @@ namespace Data
             for (int i = 0; i < _goldmines.Count; i++)
             {
                 _saver.SetGoldmine(_goldmines[i].SerialNumber);
+                string goldminePrefKey = Constants.Goldmine + _saver.GoldmineIds[i];
 
-                if (PlayerPrefs.HasKey(Constants.Goldmine + _saver.GoldmineIds[i].ToString()))
+                if (PlayerPrefs.HasKey(goldminePrefKey))
                 {
-                    if (PlayerPrefs.GetInt(Constants.Goldmine + _saver.GoldmineIds[i].ToString()) == Constants.PrefsTrue)
+                    if (PlayerPrefs.GetInt(goldminePrefKey) == Constants.PrefsTrue)
                     {
                         _goldmines[i].ActivateGoldmine();
 
                         for (int j = 0; j < PlayerPrefs.GetInt(_saver.GoldmineLevels[i].ToString()); j++)
-                        {
                             _goldmines[i].CatchLevels();
-                        }
                     }
                 }
             }
@@ -89,29 +99,9 @@ namespace Data
 
         private void LoadUpgradesData()
         {
-            if (PlayerPrefs.HasKey(Constants.PlayerLevel + Constants.Speed))
-                for (int i = 1; i < PlayerPrefs.GetInt(Constants.PlayerLevel + Constants.Speed); i++)
-                    _playerUpgrader.UpgradeMoveSpeed();
-
-            if (PlayerPrefs.HasKey(Constants.PlayerLevel + Constants.Capacity))
-                for (int i = 1; i < PlayerPrefs.GetInt(Constants.PlayerLevel + Constants.Capacity); i++)
-                    _playerUpgrader.UpgradeGoldCapacity();
-
-            if (PlayerPrefs.HasKey(Constants.PlayerLevel + Constants.Delay))
-                for (int i = 1; i < PlayerPrefs.GetInt(Constants.PlayerLevel + Constants.Delay); i++)
-                    _playerUpgrader.UpgradeFarmDelay();
-
-            if (PlayerPrefs.HasKey(Constants.MinionLevel + Constants.Speed))
-                for (int i = 1; i < PlayerPrefs.GetInt(Constants.MinionLevel + Constants.Speed); i++)
-                    _minionUpgrader.UpgradeMoveSpeed();
-
-            if (PlayerPrefs.HasKey(Constants.MinionLevel + Constants.Capacity))
-                for (int i = 1; i < PlayerPrefs.GetInt(Constants.MinionLevel + Constants.Capacity); i++)
-                    _minionUpgrader.UpgradeGoldCapacity();
-
-            if (PlayerPrefs.HasKey(Constants.MinionLevel + Constants.Delay))
-                for (int i = 1; i < PlayerPrefs.GetInt(Constants.MinionLevel + Constants.Delay); i++)
-                    _minionUpgrader.UpgradeFarmDelay();
+            foreach (var key in _saveStragiesByKey.Keys.Where(PlayerPrefs.HasKey))
+                for (int i = 1; i < PlayerPrefs.GetInt(key); i++)
+                    _saveStragiesByKey[key]?.Invoke();
         }
     }
 }

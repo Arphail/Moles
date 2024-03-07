@@ -25,6 +25,12 @@ namespace Data
         public const string Horizontal = "Horizontal";
         public const string Desktop = "Desktop";
         public const string Mobile = "Mobile";
+        public const string PlayerMovespeedUpgradeKey = PlayerLevel + Speed;
+        public const string PlayerCapacityUpgradeKey = PlayerLevel + Capacity;
+        public const string PlayerDelayUpgradeKey = PlayerLevel + Delay;
+        public const string MinionMovespeedUpgradeKey = MinionLevel + Speed;
+        public const string MinionCapacityUpgradeKey = MinionLevel + Capacity;
+        public const string MinionDelayUpgradeKey = MinionLevel + Delay;
         public const int PrefsTrue = 1;
         public const int PrefsFalse = 0;
     }

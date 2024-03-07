@@ -11,7 +11,8 @@ namespace Ui
 
         private void Update()
         {
-            _image.uvRect = new Rect(_image.uvRect.position + new Vector2(_xRect, _yRect) * Time.deltaTime, _image.uvRect.size);
+            Vector2 positionDelta = new Vector2(_xRect, _yRect) * Time.deltaTime;
+            _image.uvRect = new Rect(_image.uvRect.position + positionDelta, _image.uvRect.size);
         }
     }
 }

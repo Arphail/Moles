@@ -36,7 +36,7 @@ namespace Minions
             }
         }
 
-        public void SpawnMinion(Goldmine goldmine)
+       private void SpawnMinion(Goldmine goldmine)
         {
             foreach (Minion minion in _minionPool)
             {

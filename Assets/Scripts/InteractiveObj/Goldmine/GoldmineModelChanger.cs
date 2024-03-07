@@ -8,27 +8,22 @@ namespace InteractiveObj.Goldmine
         [SerializeField] private ParticleSystem[] _effects;
 
         private GameObject _currentModel;
+        private int _currentModelIndex;
 
         private void Awake()
         {
-            _currentModel = _models[0];
+            _currentModel = _models[_currentModelIndex];
         }
 
         public void ChangeToNextModel()
         {
-            if (_currentModel == _models[_models.Length - 1])
+            if (_currentModelIndex == _models.Length - 1)
                 return;
 
             _currentModel.SetActive(false);
-
-            for (int i = 0; i < _models.Length; i++)
-            {
-                if (_models[i] == _currentModel)
-                {
-                    _currentModel = _models[i + 1];
-                    break;
-                }
-            }
+            
+            _currentModelIndex++;
+            _currentModel = _models[_currentModelIndex];
 
             foreach (var effect in _effects)
                 effect.Play();

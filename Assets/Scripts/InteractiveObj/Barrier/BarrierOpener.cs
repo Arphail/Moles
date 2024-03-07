@@ -13,18 +13,6 @@ namespace InteractiveObj.Barrier
 
         private Barrier _currentBarrier;
 
-        public void OnBarrierOpenButtonClick()
-        {
-            if (_currentBarrier != null && _currentBarrier.Cost <= _base.Money)
-            {
-                _audioSource.Play();
-                _currentBarrier.Open();
-                _saver.SaveBarrier(_currentBarrier.SerialNumber);
-                _base.SpendGold(_currentBarrier.Cost);
-                _ui.HideButton();
-            }
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.TryGetComponent<Barrier>(out Barrier barrier))
@@ -40,6 +28,18 @@ namespace InteractiveObj.Barrier
             {
                 _ui.HideButton();
                 _currentBarrier = null;
+            }
+        }
+
+        public void OnBarrierOpenButtonClick()
+        {
+            if (_currentBarrier != null && _currentBarrier.Cost <= _base.Money)
+            {
+                _audioSource.Play();
+                _currentBarrier.Open();
+                _saver.SaveBarrier(_currentBarrier.SerialNumber);
+                _base.SpendGold(_currentBarrier.Cost);
+                _ui.HideButton();
             }
         }
     }
