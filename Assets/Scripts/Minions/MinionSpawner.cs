@@ -9,7 +9,6 @@ namespace Minions
         [SerializeField] private Goldmine[] _goldmines;
         [SerializeField] private Minion[] _minionPool;
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private Transform _returnPoint;
 
         private List<Goldmine> _activatedGoldmines;
 
@@ -35,8 +34,8 @@ namespace Minions
                 goldmine.Upgraded -= OnGoldMineUpgraded;
             }
         }
-
-       private void SpawnMinion(Goldmine goldmine)
+        
+        private void SpawnMinion(Goldmine goldmine)
         {
             foreach (Minion minion in _minionPool)
             {

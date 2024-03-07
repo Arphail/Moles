@@ -20,13 +20,13 @@ namespace Data
         [SerializeField] private PlayerUpgrader _playerUpgrader;
 
         private DataSaver _saver;
-        private Dictionary<string, Action> _saveStragiesByKey;
+        private Dictionary<string, Action> _saveStrategiesByKey;
 
         private void Awake()
         {
             _saver = GetComponent<DataSaver>();
 
-            _saveStragiesByKey = new Dictionary<string, Action>()
+            _saveStrategiesByKey = new Dictionary<string, Action>()
             {
                 [Constants.PlayerMovespeedUpgradeKey] = () => _playerUpgrader.UpgradeMoveSpeed(),
                 [Constants.PlayerCapacityUpgradeKey] = () => _playerUpgrader.UpgradeGoldCapacity(),
@@ -99,9 +99,9 @@ namespace Data
 
         private void LoadUpgradesData()
         {
-            foreach (var key in _saveStragiesByKey.Keys.Where(PlayerPrefs.HasKey))
+            foreach (var key in _saveStrategiesByKey.Keys.Where(PlayerPrefs.HasKey))
                 for (int i = 1; i < PlayerPrefs.GetInt(key); i++)
-                    _saveStragiesByKey[key]?.Invoke();
+                    _saveStrategiesByKey[key]?.Invoke();
         }
     }
 }
